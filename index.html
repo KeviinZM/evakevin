@@ -578,7 +578,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
           <path class="leaf" d="M148 13c-6-5.5-14-4-18 0 4 4 12 5.5 18 0z" opacity=".85"/>
           <circle class="bud" cx="104" cy="13" r="1.9"/><circle class="bud" cx="156" cy="13" r="1.9"/>
         </svg>
-        <p data-i18n="thanksBody">Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d'ici là, notez bien la date&nbsp;!</p>
+        <p id="thanksBody">Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d&rsquo;ici là, notez bien la date&nbsp;!</p>
       </div>
     </div>
   </div>
@@ -697,7 +697,8 @@ const I18N = {
     errSend:      'L’envoi a échoué. Réessayez, ou remplissez le formulaire ici :',
     errConfig:    'Le formulaire n’est pas encore connecté. (Renseignez CONFIG.form dans index.html.)',
     thanksTitle:  'Merci !',
-    thanksBody:   'Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d’ici là, notez bien la date !'
+    thanksBody:   'Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d’ici là, notez bien la date !',
+    thanksAgain:  'Vous nous avez déjà transmis vos coordonnées{date}. Inutile de remplir le formulaire une seconde fois — tout est bien noté !'
   },
   es: {
     title:        'Reserva la fecha',
@@ -729,7 +730,8 @@ const I18N = {
     errSend:      'No se pudo enviar. Inténtalo de nuevo o rellena el formulario aquí:',
     errConfig:    'El formulario aún no está conectado. (Rellena CONFIG.form en index.html.)',
     thanksTitle:  '¡Gracias!',
-    thanksBody:   'Hemos recibido tus datos. La invitación te llegará a su debido tiempo — mientras tanto, ¡apunta bien la fecha!'
+    thanksBody:   'Hemos recibido tus datos. La invitación te llegará a su debido tiempo — mientras tanto, ¡apunta bien la fecha!',
+    thanksAgain:  'Ya nos enviaste tus datos{date}. No hace falta rellenar el formulario otra vez — ¡lo tenemos todo apuntado!'
   }
 };
 
@@ -740,6 +742,7 @@ const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
 let LANG = 'fr';
+let refreshThanks = () => {};   // défini plus bas, dans le bloc formulaire
 const mapsUrl = a => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a.join(', '));
 
 function applyContent() {
@@ -766,6 +769,7 @@ function applyContent() {
   $('#heroCity').textContent  = CONFIG.heroCity[LANG];
 
   renderSteps();
+  refreshThanks();
 }
 
 /* --- Les étapes de la journée, construites depuis CONFIG.steps --- */
@@ -876,6 +880,55 @@ let observeReveals = () => $$('.reveal').forEach(e => e.classList.add('in'));
 
   const showError = html => { errBox.innerHTML = html; errBox.classList.add('on'); };
 
+  /* ---- Mémoire du navigateur -----------------------------------
+     Un invité qui a déjà répondu et qui revient (ou rafraîchit)
+     retrouve le message de remerciement, pas le formulaire vide.
+     Évite les doublons dans la Google Sheet.
+
+     Limites assumées : c'est par navigateur et par appareil. La même
+     personne sur son téléphone puis son ordinateur pourra répondre
+     deux fois, et vider les données du site remet le compteur à zéro.
+     C'est une protection contre l'envoi accidentel, pas un verrou. */
+  const STORAGE_KEY = 'evakevin:rsvp';
+
+  const readSent = () => {
+    // localStorage lève une exception en navigation privée ou si
+    // les cookies tiers sont bloqués : on ne doit jamais casser la page.
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); }
+    catch (e) { return null; }
+  };
+  const markSent = (data) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        at: new Date().toISOString(), prenom: data.prenom, nom: data.nom
+      }));
+    } catch (e) { /* tant pis : on perd juste la mémoire */ }
+  };
+
+  let justSubmitted = false;
+
+  refreshThanks = () => {
+    const p = $('#thanksBody'), t = I18N[LANG], sent = readSent();
+    if (!p) return;
+    if (sent && !justSubmitted) {
+      let quand = '';
+      try {
+        quand = ' ' + (LANG === 'es' ? 'el ' : 'le ') +
+          new Date(sent.at).toLocaleDateString(LANG === 'es' ? 'es-ES' : 'fr-FR',
+            { day: 'numeric', month: 'long' });
+      } catch (e) { /* date illisible : on affiche la phrase sans date */ }
+      p.textContent = t.thanksAgain.replace('{date}', quand);
+    } else {
+      p.textContent = t.thanksBody;
+    }
+  };
+
+  /* Déjà répondu depuis ce navigateur : on masque le formulaire d'emblée */
+  if (readSent()) {
+    form.style.display = 'none';
+    thanks.classList.add('on');
+  }
+
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     const t = I18N[LANG];
@@ -926,8 +979,11 @@ let observeReveals = () => $$('.reveal').forEach(e => e.classList.add('in'));
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body.toString()
       });
+      markSent(data);
+      justSubmitted = true;
       form.style.display = 'none';
       thanks.classList.add('on');
+      refreshThanks();
       thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (e) {
       btn.disabled = false;
