@@ -139,22 +139,10 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
    toujours vers l'extérieur. */
 .bq-hero{  top:calc(var(--bq) * -.30); right:calc(var(--bq) * -.12); }
 .bq-cd{    top:calc(var(--bq) * -.26); left:calc(var(--bq)  * -.12); transform:scaleX(-1); }
-.bq-lieux{ --bq:clamp(150px,18vw,240px); top:calc(var(--bq) * -.20); right:calc(var(--bq) * -.14); }
 .bq-form{  top:calc(var(--bq) * -.26); left:calc(var(--bq)  * -.12); transform:scaleX(-1); }
 
-/* conteneurs de référence pour le positionnement */
-#lieux .wrap{ position:relative; }
-
-/* Tout ce qui est posé directement sur l'aplat saumon ressort en blanc. */
-.on-salmon .eyebrow{ color:#fff; }
-.section-head.on-salmon h2{ color:#fff; }   /* plus spécifique que .section-head h2, déclaré plus bas */
-.on-salmon .ornament .rule{ stroke:#fff; opacity:.75; }
-.on-salmon .ornament .leaf{ fill:#fff; opacity:.8; }
-.on-salmon .ornament .bud{ fill:#fff; }
-.on-salmon.travel-note{ color:#fff; }
-
 @media (max-width:560px){
-  .bq-lieux, .bq-form{ display:none; }   /* on allège sur petit écran */
+  .bq-form{ display:none; }   /* on allège sur petit écran */
   /* le bouquet reste, mais plus petit, et le titre descend sous lui */
   .bouquet{ --bq:158px; }
   .hero .hero-inner{ padding-top:76px; }   /* .hero pour passer devant la règle de base */
@@ -210,6 +198,13 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
   text-transform:uppercase;
   color:var(--ink-soft);
   margin:1.5em 0 .5em;
+}
+.hero .time{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1rem,2.8vw,1.22rem);
+  color:var(--salmon-ink);   /* 4,9:1 sur le blanc de la carte */
+  margin:0 0 .55em;
 }
 .hero .city{
   font-family:var(--serif);
@@ -312,74 +307,6 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
   font-size:clamp(1.8rem,7vw,3rem);
   color:var(--salmon-deep);
 }
-
-/* ============================================================
-   LIEUX
-   ============================================================ */
-#lieux{ background:var(--salmon); }
-
-.venues{
-  list-style:none; margin:0; padding:0;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:clamp(20px,3.5vw,34px);
-}
-@media (min-width:860px){ .venues{ grid-template-columns:repeat(3,1fr); } }
-
-/* chiffre romain de l'étape */
-.step-num{
-  display:block;
-  font-family:var(--serif); font-style:italic;
-  font-size:1.35rem; line-height:1;
-  color:var(--salmon);
-  margin-bottom:1.1em;
-}
-.travel-note{
-  text-align:center;
-  margin:clamp(30px,5vw,46px) auto 0;
-  max-width:460px;
-  font-family:var(--serif); font-style:italic;
-  font-size:clamp(.95rem,2.4vw,1.08rem);
-  color:var(--sage-deep);
-  line-height:1.8;
-}
-.venue{
-  position:relative;
-  padding:clamp(18px,3vw,30px) clamp(8px,1.6vw,18px);
-  text-align:center;
-}
-/* coins dorés façon cadre */
-
-.venue .tag{
-  font-size:.6rem; letter-spacing:.34em; text-transform:uppercase;
-  color:var(--sage-deep);
-}
-.venue h3{
-  font-size:clamp(1.5rem,4vw,2rem);
-  margin:.55em 0 .35em;
-  color:var(--ink);
-}
-.venue .time{
-  font-family:var(--serif); font-style:italic;
-  font-size:1.1rem; color:var(--salmon-deep);
-  margin:0 0 1em;
-}
-.venue address{
-  font-style:normal;
-  font-size:.92rem;
-  color:var(--ink-soft);
-  line-height:1.9;
-  margin-bottom:1.6em;
-}
-.map-link{
-  display:inline-block;
-  font-size:.64rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--ink); text-decoration:none;   /* sur la carte blanche : noir */
-  border-bottom:1px solid rgba(194,116,92,.5);
-  padding-bottom:5px;
-  transition:color .3s, border-color .3s;
-}
-.map-link:hover,.map-link:focus-visible{ color:var(--gold-deep); border-color:var(--gold); }
 
 /* ============================================================
    FORMULAIRE
@@ -540,6 +467,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
       <circle class="bud" cx="156" cy="13" r="1.9"/>
     </svg>
     <p class="date" id="heroDate">Samedi 5 juin 2027</p>
+    <p class="time" id="heroTime">À partir de 13h30</p>
     <p class="city" id="heroCity">Le Perreux-sur-Marne · Coulommiers</p>
   </div>
   <a class="scroll-cue" href="#compte-a-rebours" aria-label="Défiler">
@@ -567,28 +495,6 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
       </div>
       <div class="cd-done" id="cdDone" hidden data-i18n="cdDone">C'est aujourd'hui</div>
     </div>
-  </div>
-</section>
-
-<!-- ══════════ LIEUX ══════════ -->
-<section id="lieux">
-  <div class="wrap">
-    <img class="bouquet bq-lieux" src="bouquet.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
-    <div class="section-head on-salmon reveal">
-      <p class="eyebrow" data-i18n="venuesEyebrow">Le jour J</p>
-      <h2 data-i18n="venuesTitle">Le déroulé de la journée</h2>
-      <svg class="ornament" viewBox="0 0 260 26" aria-hidden="true">
-        <line class="rule" x1="0" y1="13" x2="96" y2="13"/>
-        <line class="rule" x1="164" y1="13" x2="260" y2="13"/>
-        <path class="leaf" d="M130 3c5.5 4 5.5 15 0 20-5.5-5-5.5-16 0-20z"/>
-        <path class="leaf" d="M112 13c6-5.5 14-4 18 0-4 4-12 5.5-18 0z" opacity=".85"/>
-        <path class="leaf" d="M148 13c-6-5.5-14-4-18 0 4 4 12 5.5 18 0z" opacity=".85"/>
-        <circle class="bud" cx="104" cy="13" r="1.9"/>
-        <circle class="bud" cx="156" cy="13" r="1.9"/>
-      </svg>
-    </div>
-    <ol class="venues" id="venues"></ol>
-    <p class="travel-note on-salmon" id="travelNote" hidden></p>
   </div>
 </section>
 
@@ -665,35 +571,9 @@ const CONFIG = {
   dateISO: '2027-06-05T13:30:00+02:00',
   dateShort: '05 · 06 · 2027',
 
-  /* ---- Le déroulé de la journée, dans l'ordre ---------------
-     Trois étapes qui s'enchaînent. Pour en ajouter/retirer une,
-     ajoute/retire simplement un bloc ici : le site s'adapte. */
-  steps: [
-    {
-      tag:  'civil',                                    // libellé traduit (voir I18N)
-      name: 'Mairie du Perreux-sur-Marne',
-      address: ['Place de la Libération', '94170 Le Perreux-sur-Marne'],
-      time: { fr: '13h30', es: '13:30' }
-    },
-    {
-      tag:  'religious',
-      name: 'Église Saint-Jean-Baptiste',
-      address: ['Allée de Bellevue', '94170 Le Perreux-sur-Marne'],  // ⚠️ numéro de rue à confirmer
-      time: { fr: 'Dans la foulée', es: 'A continuación' }           // ⚠️ horaire exact ?
-    },
-    {
-      tag:  'party',
-      name: 'Domaine de Pontmoulin',
-      address: ['Pontmoulin', '77120 Coulommiers'],     // ⚠️ adresse précise à confirmer
-      time: { fr: 'Dans la foulée', es: 'A continuación' }  // ⚠️ horaire exact ?
-    }
-  ],
-
-  /* Mot sous le déroulé — mets à '' pour le masquer. */
-  showTravelNote: false,  // mot sur le trajet église → domaine (~50 km) : masqué
-
-  /* ---- Texte de la date / lieu affiché dans le hero --------- */
-  heroDate: { fr: 'Samedi 5 juin 2027',  es: 'Sábado 5 de junio de 2027' },
+  /* ---- Texte de la date, de l'heure et du lieu, dans le hero --- */
+  heroDate: { fr: 'Samedi 5 juin 2027',   es: 'Sábado 5 de junio de 2027' },
+  heroTime: { fr: 'À partir de 13h30',    es: 'A partir de las 13:30' },
   heroCity: { fr: 'Le Perreux-sur-Marne · Coulommiers',
               es: 'Le Perreux-sur-Marne · Coulommiers' },
 
@@ -734,13 +614,6 @@ const I18N = {
     cdTitle:      'Avant de nous dire oui',
     days:'Jours', hours:'Heures', minutes:'Minutes', seconds:'Secondes',
     cdDone:       'C’est aujourd’hui',
-    venuesEyebrow:'Le jour J',
-    venuesTitle:  'Le déroulé de la journée',
-    civil:        'Cérémonie civile',
-    religious:    'Cérémonie religieuse',
-    party:        'Réception',
-    travelNote:   'Comptez environ une heure de route entre l’église et le domaine — nous vous donnerons tous les détails dans le faire-part.',
-    map:          'Voir sur la carte',
     formEyebrow:  'Une dernière chose',
     formTitle:    'Laissez-nous votre adresse',
     formLede:     'Ceci n’est qu’un avant-goût : le faire-part officiel, lui, arrivera par la poste. Laissez-nous vos coordonnées pour que nous puissions vous l’envoyer.',
@@ -767,13 +640,6 @@ const I18N = {
     cdTitle:      'Antes de darnos el sí',
     days:'Días', hours:'Horas', minutes:'Minutos', seconds:'Segundos',
     cdDone:       '¡Es hoy!',
-    venuesEyebrow:'El gran día',
-    venuesTitle:  'El programa del día',
-    civil:        'Ceremonia civil',
-    religious:    'Ceremonia religiosa',
-    party:        'Recepción',
-    travelNote:   'Hay aproximadamente una hora de trayecto entre la iglesia y el dominio — os daremos todos los detalles en la invitación.',
-    map:          'Ver en el mapa',
     formEyebrow:  'Una última cosa',
     formTitle:    'Déjanos tu dirección',
     formLede:     'Esto es solo un adelanto: la invitación oficial llegará por correo postal. Déjanos tus datos para que podamos enviártela.',
@@ -802,7 +668,6 @@ const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
 let LANG = 'fr';
 let refreshThanks = () => {};   // défini plus bas, dans le bloc formulaire
-const mapsUrl = a => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a.join(', '));
 
 function applyContent() {
   const t = I18N[LANG];
@@ -825,60 +690,10 @@ function applyContent() {
   $('#footNames').textContent = CONFIG.name1 + ' & ' + CONFIG.name2;
   $('#footDate').textContent  = CONFIG.dateShort;
   $('#heroDate').textContent  = CONFIG.heroDate[LANG];
+  $('#heroTime').textContent  = CONFIG.heroTime[LANG];
   $('#heroCity').textContent  = CONFIG.heroCity[LANG];
 
-  renderSteps();
   refreshThanks();
-}
-
-/* --- Les étapes de la journée, construites depuis CONFIG.steps --- */
-const ROMAN  = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-let stepsRendered = false;
-
-function renderSteps() {
-  const t = I18N[LANG], list = $('#venues');
-  list.textContent = '';
-
-  CONFIG.steps.forEach((s, i) => {
-    const li = document.createElement('li');
-    li.className = 'venue lace-card reveal' + (stepsRendered ? ' in' : '');
-
-    const el = (tag, cls, txt) => {
-      const n = document.createElement(tag);
-      if (cls) n.className = cls;
-      if (txt !== undefined) n.textContent = txt;
-      return n;
-    };
-
-    const addr = el('address');
-    s.address.forEach((line, k) => {
-      if (k) addr.appendChild(document.createElement('br'));
-      addr.appendChild(document.createTextNode(line));
-    });
-
-    const link = el('a', 'map-link', t.map);
-    link.href = mapsUrl([s.name].concat(s.address));
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.setAttribute('aria-label', t.map + ' — ' + s.name);
-
-    li.append(
-      el('span', 'step-num', ROMAN[i] || String(i + 1)),
-      el('p', 'tag', t[s.tag] || s.tag),
-      el('h3', null, s.name),
-      el('p', 'time', s.time[LANG]),
-      addr,
-      document.createElement('br'),
-      link
-    );
-    list.appendChild(li);
-  });
-
-  const note = $('#travelNote');
-  note.hidden = !CONFIG.showTravelNote;
-  if (CONFIG.showTravelNote) note.textContent = t.travelNote;
-
-  if (!stepsRendered) { observeReveals(); stepsRendered = true; }
 }
 
 $$('.lang button').forEach(b => b.addEventListener('click', () => {
