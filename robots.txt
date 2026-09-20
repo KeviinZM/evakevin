@@ -1,0 +1,4 @@
+# Site privé : réservé aux invités qui ont reçu le lien.
+# Aucun moteur de recherche ne doit indexer cette page.
+User-agent: *
+Disallow: /
