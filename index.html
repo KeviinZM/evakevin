@@ -321,6 +321,18 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 }
 .grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.6vw,26px) clamp(18px,3vw,30px); }
 .field.full{ grid-column:1/-1; }
+
+/* Intertitre à l'intérieur du formulaire : sépare les coordonnées
+   des questions liées à la fête. */
+.field-group{
+  grid-column:1/-1;
+  margin:clamp(14px,2.4vw,26px) 0 0;
+  padding-top:clamp(14px,2.4vw,26px);
+  border-top:1px solid rgba(194,116,92,.28);
+  font-size:.58rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--salmon-ink);
+}
+.field-group:first-child{ margin-top:0; padding-top:0; border-top:0; }
 @media (max-width:620px){ .grid{ grid-template-columns:1fr; } }
 
 .field label{
@@ -512,6 +524,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
     <div class="form-card">
       <form id="rsvpForm" novalidate>
         <div class="grid">
+          <p class="field-group" data-i18n="gContact">Vos coordonnées</p>
           <div class="field"><label for="f_prenom" data-i18n="lFirst">Prénom <span class="req">*</span></label><input id="f_prenom" name="prenom" type="text" autocomplete="given-name" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
           <div class="field"><label for="f_nom" data-i18n="lLast">Nom <span class="req">*</span></label><input id="f_nom" name="nom" type="text" autocomplete="family-name" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
           <div class="field"><label for="f_email" data-i18n="lEmail">Email <span class="req">*</span></label><input id="f_email" name="email" type="email" autocomplete="email" required><span class="err" data-i18n="errEmail">Adresse email invalide</span></div>
@@ -521,8 +534,11 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
           <div class="field"><label for="f_cp" data-i18n="lZip">Code postal <span class="req">*</span></label><input id="f_cp" name="cp" type="text" inputmode="numeric" autocomplete="postal-code" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
           <div class="field"><label for="f_ville" data-i18n="lCity">Ville <span class="req">*</span></label><input id="f_ville" name="ville" type="text" autocomplete="address-level2" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
           <div class="field full"><label for="f_pays" data-i18n="lCountry">Pays <span class="req">*</span></label><input id="f_pays" name="pays" type="text" autocomplete="country-name" value="France" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
-          <div class="field"><label for="f_adultes" data-i18n="lAdults">Nombre d'adultes</label><select id="f_adultes" name="adultes"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><span class="err"></span></div>
-          <div class="field"><label for="f_enfants" data-i18n="lKids">Nombre d'enfants</label><select id="f_enfants" name="enfants"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select><span class="err"></span></div>
+
+          <p class="field-group" data-i18n="gParty">Pour le jour J</p>
+          <div class="field full"><label for="f_chanson" data-i18n="lSong">Une chanson que vous aimeriez entendre</label><input id="f_chanson" name="chanson" type="text" data-i18n-ph="phSong" placeholder="Titre — Artiste"><span class="err"></span></div>
+          <div class="field"><label for="f_regime" data-i18n="lDiet">Régime alimentaire</label><input id="f_regime" name="regime" type="text" data-i18n-ph="phDiet" placeholder="Aucun, halal, végétarien…"><span class="err"></span></div>
+          <div class="field"><label for="f_allergies" data-i18n="lAllergies">Allergies alimentaires</label><input id="f_allergies" name="allergies" type="text" data-i18n-ph="phAllergies" placeholder="Aucune"><span class="err"></span></div>
           <div class="field full"><label for="f_mot" data-i18n="lMsg">Un petit mot (facultatif)</label><textarea id="f_mot" name="mot" rows="3"></textarea><span class="err"></span></div>
         </div>
         <div class="form-actions">
@@ -595,8 +611,12 @@ const CONFIG = {
       cp:         'entry.1152276880',
       ville:      'entry.770643901',
       pays:       'entry.1227623146',
-      adultes:    'entry.1005849205',
-      enfants:    'entry.684885714',
+      // ⚠️ Les trois questions ci-dessous doivent d'abord être ajoutées
+      //    dans le Google Form. Tant que la valeur est vide, la réponse
+      //    de l'invité n'est PAS enregistrée.
+      chanson:    '',
+      regime:     '',
+      allergies:  '',
       mot:        'entry.390824516'
     }
   }
@@ -617,10 +637,14 @@ const I18N = {
     formEyebrow:  'Une dernière chose',
     formTitle:    'Laissez-nous votre adresse',
     formLede:     'Ceci n’est qu’un avant-goût : le faire-part officiel, lui, arrivera par la poste. Laissez-nous vos coordonnées pour que nous puissions vous l’envoyer.',
+    gContact:'Vos coordonnées', gParty:'Pour le jour J',
     lFirst:'Prénom', lLast:'Nom', lEmail:'Email', lPhone:'Téléphone',
     lAddr:'Adresse', lAddr2:'Complément d’adresse', lZip:'Code postal',
-    lCity:'Ville', lCountry:'Pays', lAdults:'Nombre d’adultes',
-    lKids:'Nombre d’enfants', lMsg:'Un petit mot (facultatif)',
+    lCity:'Ville', lCountry:'Pays',
+    lSong:'Une chanson que vous aimeriez entendre',
+    lDiet:'Régime alimentaire', lAllergies:'Allergies alimentaires',
+    lMsg:'Un petit mot (facultatif)',
+    phSong:'Titre — Artiste', phDiet:'Aucun, halal, végétarien…', phAllergies:'Aucune',
     submit:       'Envoyer',
     sending:      'Envoi…',
     formNote:     'Vos coordonnées ne servent qu’à l’envoi du faire-part.',
@@ -643,10 +667,14 @@ const I18N = {
     formEyebrow:  'Una última cosa',
     formTitle:    'Déjanos tu dirección',
     formLede:     'Esto es solo un adelanto: la invitación oficial llegará por correo postal. Déjanos tus datos para que podamos enviártela.',
+    gContact:'Tus datos', gParty:'Para el gran día',
     lFirst:'Nombre', lLast:'Apellidos', lEmail:'Correo electrónico', lPhone:'Teléfono',
     lAddr:'Dirección', lAddr2:'Piso, puerta, etc.', lZip:'Código postal',
-    lCity:'Ciudad', lCountry:'País', lAdults:'Número de adultos',
-    lKids:'Número de niños', lMsg:'Unas palabras (opcional)',
+    lCity:'Ciudad', lCountry:'País',
+    lSong:'Una canción que te gustaría escuchar',
+    lDiet:'Régimen alimentario', lAllergies:'Alergias alimentarias',
+    lMsg:'Unas palabras (opcional)',
+    phSong:'Título — Artista', phDiet:'Ninguno, halal, vegetariano…', phAllergies:'Ninguna',
     submit:       'Enviar',
     sending:      'Enviando…',
     formNote:     'Tus datos solo se usarán para enviarte la invitación.',
@@ -682,6 +710,11 @@ function applyContent() {
     const req = el.querySelector('.req');            // garde l'astérisque des labels
     el.textContent = v;
     if (req) el.append(' ', req);
+  });
+
+  $$('[data-i18n-ph]').forEach(el => {
+    const v = t[el.dataset.i18nPh];
+    if (v !== undefined) el.placeholder = v;
   });
 
   /* contenu piloté par CONFIG */
@@ -792,6 +825,14 @@ let observeReveals = () => $$('.reveal').forEach(e => e.classList.add('in'));
       p.textContent = t.thanksBody;
     }
   };
+
+  /* Garde-fou : une question sans identifiant Google n'est envoyée
+     nulle part, et la réponse de l'invité serait perdue en silence. */
+  const nonMappes = Object.entries(CONFIG.form.entries)
+    .filter(([, id]) => !id).map(([cle]) => cle);
+  if (nonMappes.length) {
+    console.warn('Champs sans destination Google Form, réponses NON enregistrées :', nonMappes.join(', '));
+  }
 
   /* Déjà répondu depuis ce navigateur : on masque le formulaire d'emblée */
   if (readSent()) {

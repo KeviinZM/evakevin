@@ -31,18 +31,19 @@ function creerFormulaireMariage() {
   // ---------------------------------------------------------------
 
   var champs = [
-    ['prenom',     'Prénom',                  'court'],
-    ['nom',        'Nom',                     'court'],
-    ['email',      'Email',                   'court'],
-    ['tel',        'Téléphone',               'court'],
-    ['adresse',    'Adresse',                 'court'],
-    ['complement', "Complément d'adresse",    'court'],
-    ['cp',         'Code postal',             'court'],
-    ['ville',      'Ville',                   'court'],
-    ['pays',       'Pays',                    'court'],
-    ['adultes',    "Nombre d'adultes",        'court'],
-    ['enfants',    "Nombre d'enfants",        'court'],
-    ['mot',        'Un petit mot',            'long']
+    ['prenom',     'Prénom',                              'court'],
+    ['nom',        'Nom',                                 'court'],
+    ['email',      'Email',                               'court'],
+    ['tel',        'Téléphone',                           'court'],
+    ['adresse',    'Adresse',                             'court'],
+    ['complement', "Complément d'adresse",                'court'],
+    ['cp',         'Code postal',                         'court'],
+    ['ville',      'Ville',                               'court'],
+    ['pays',       'Pays',                                'court'],
+    ['chanson',    'Une chanson que vous aimeriez entendre', 'court'],
+    ['regime',     'Régime alimentaire',                  'court'],
+    ['allergies',  'Allergies alimentaires',              'court'],
+    ['mot',        'Un petit mot',                        'long']
   ];
 
   var form = FormApp.create(TITRE_FORM);
