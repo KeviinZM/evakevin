@@ -123,22 +123,24 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
    réutilisée en miroir d'une section à l'autre.
    ============================================================ */
 .bouquet{
-  --bq:clamp(112px,14vw,182px);
+  --bq:clamp(170px,22vw,300px);
   position:absolute;
   pointer-events:none;
   user-select:none;
   z-index:4;
   width:var(--bq);
-  aspect-ratio:1;          /* l'image est carrée : évite tout saut de mise en page */
+  aspect-ratio:1050/700;   /* proportions de la photo : aucun saut de mise en page */
   height:auto;
 }
 
-/* Décalages exprimés en fraction du bouquet : il reste toujours
-   à cheval sur l'angle, quelle que soit la largeur d'écran. */
-.bq-hero{  top:calc(var(--bq) * -.52); right:calc(var(--bq) * -.22); }
-.bq-cd{    top:calc(var(--bq) * -.46); left:calc(var(--bq)  * -.22); transform:scaleX(-1); }
-.bq-lieux{ --bq:clamp(96px,11vw,148px); top:calc(var(--bq) * -.34); right:calc(var(--bq) * -.26); }
-.bq-form{  top:calc(var(--bq) * -.46); left:calc(var(--bq)  * -.22); transform:scaleX(-1); }
+/* Décalages exprimés en fraction de la largeur du bouquet : la
+   gerbe reste posée sur l'angle quelle que soit la taille d'écran.
+   À gauche, l'image est retournée pour que la masse florale soit
+   toujours vers l'extérieur. */
+.bq-hero{  top:calc(var(--bq) * -.30); right:calc(var(--bq) * -.12); }
+.bq-cd{    top:calc(var(--bq) * -.26); left:calc(var(--bq)  * -.12); transform:scaleX(-1); }
+.bq-lieux{ --bq:clamp(150px,18vw,240px); top:calc(var(--bq) * -.20); right:calc(var(--bq) * -.14); }
+.bq-form{  top:calc(var(--bq) * -.26); left:calc(var(--bq)  * -.12); transform:scaleX(-1); }
 
 /* conteneurs de référence pour le positionnement */
 #lieux .wrap{ position:relative; }
@@ -154,7 +156,7 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
 @media (max-width:560px){
   .bq-lieux, .bq-form{ display:none; }   /* on allège sur petit écran */
   /* le bouquet reste, mais plus petit, et le titre descend sous lui */
-  .bouquet{ --bq:104px; }
+  .bouquet{ --bq:158px; }
   .hero .hero-inner{ padding-top:76px; }   /* .hero pour passer devant la règle de base */
 }
 
@@ -521,7 +523,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <!-- ══════════ HERO ══════════ -->
 <header class="hero">
   <div class="hero-inner lace-card">
-    <img class="bouquet bq-hero" src="bouquet.png" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+    <img class="bouquet bq-hero" src="bouquet.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
     <p class="script-top" data-i18n="saveTheDate">Save the Date</p>
     <h1 class="names">
       <span id="name1">Eva</span>
@@ -550,7 +552,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <section class="countdown-section" id="compte-a-rebours">
   <div class="wrap">
     <div class="lace-card cd-card reveal">
-      <img class="bouquet bq-cd" src="bouquet.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="bouquet bq-cd" src="bouquet.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="section-head">
         <p class="eyebrow" data-i18n="cdEyebrow">Plus que</p>
       </div>
@@ -571,7 +573,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <!-- ══════════ LIEUX ══════════ -->
 <section id="lieux">
   <div class="wrap">
-    <img class="bouquet bq-lieux" src="bouquet.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img class="bouquet bq-lieux" src="bouquet.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
     <div class="section-head on-salmon reveal">
       <p class="eyebrow" data-i18n="venuesEyebrow">Le jour J</p>
       <h2 data-i18n="venuesTitle">Le déroulé de la journée</h2>
@@ -594,7 +596,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <section class="rsvp" id="adresse">
   <div class="wrap">
    <div class="lace-card section-card reveal">
-    <img class="bouquet bq-form" src="bouquet.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img class="bouquet bq-form" src="bouquet.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
     <div class="section-head">
       <p class="eyebrow" data-i18n="formEyebrow">Une dernière chose</p>
       <h2 data-i18n="formTitle">Laissez-nous votre adresse</h2>
