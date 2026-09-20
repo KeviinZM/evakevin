@@ -218,6 +218,8 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
   max-width:760px; margin:0 auto;
   padding:clamp(26px,5.5vw,56px) clamp(18px,4vw,44px);
 }
+/* Carte dentelle pleine largeur, pour les sections du bas */
+.section-card{ padding:clamp(26px,5vw,56px) clamp(16px,3.5vw,44px); }
 .cd-card .section-head{ margin-bottom:clamp(26px,4vw,40px); }
 
 /* « Avant de nous dire oui » passe sous les chiffres */
@@ -265,6 +267,8 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 /* ============================================================
    LIEUX
    ============================================================ */
+#lieux{ background:var(--salmon); }
+
 .venues{
   list-style:none; margin:0; padding:0;
   display:grid;
@@ -336,16 +340,12 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 /* ============================================================
    FORMULAIRE
    ============================================================ */
-.rsvp{ background:var(--blush); position:relative; }
-.rsvp::before{
-  content:''; position:absolute; top:0; left:var(--gutter); right:var(--gutter); height:1px;
-  background:rgba(194,116,92,.3);   /* aplat, aucun dégradé */
-}
+.rsvp{ background:var(--salmon); position:relative; }
+/* Le formulaire est désormais à l'intérieur de la carte dentelle :
+   son propre cadre ferait doublon. */
 .form-card{
-  background:var(--paper);
-  border:1px solid rgba(194,116,92,.28);
-  padding:clamp(28px,5.5vw,64px);
-  max-width:760px; margin:0 auto;
+  padding:0;
+  max-width:640px; margin:0 auto;
   position:relative;
 }
 .grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.6vw,26px) clamp(18px,3vw,30px); }
@@ -525,7 +525,8 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <!-- ══════════ LIEUX ══════════ -->
 <section id="lieux">
   <div class="wrap">
-    <div class="section-head reveal">
+   <div class="lace-card section-card reveal">
+    <div class="section-head">
       <p class="eyebrow" data-i18n="venuesEyebrow">Le jour J</p>
       <h2 data-i18n="venuesTitle">Le déroulé de la journée</h2>
       <svg class="ornament" viewBox="0 0 260 26" aria-hidden="true">
@@ -539,20 +540,22 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
       </svg>
     </div>
     <ol class="venues" id="venues"></ol>
-    <p class="travel-note reveal" id="travelNote" hidden></p>
+    <p class="travel-note" id="travelNote" hidden></p>
+   </div>
   </div>
 </section>
 
 <!-- ══════════ FORMULAIRE ══════════ -->
 <section class="rsvp" id="adresse">
   <div class="wrap">
-    <div class="section-head reveal">
+   <div class="lace-card section-card reveal">
+    <div class="section-head">
       <p class="eyebrow" data-i18n="formEyebrow">Une dernière chose</p>
       <h2 data-i18n="formTitle">Laissez-nous votre adresse</h2>
       <p class="lede" data-i18n="formLede">Ceci n'est qu'un avant-goût : le faire-part officiel, lui, arrivera par la poste. Laissez-nous vos coordonnées pour que nous puissions vous l'envoyer.</p>
     </div>
 
-    <div class="form-card reveal">
+    <div class="form-card">
       <form id="rsvpForm" novalidate>
         <div class="grid">
           <div class="field"><label for="f_prenom" data-i18n="lFirst">Prénom <span class="req">*</span></label><input id="f_prenom" name="prenom" type="text" autocomplete="given-name" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
@@ -588,6 +591,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
         <p id="thanksBody">Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d&rsquo;ici là, notez bien la date&nbsp;!</p>
       </div>
     </div>
+   </div>
   </div>
 </section>
 
