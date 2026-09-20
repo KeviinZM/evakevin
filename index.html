@@ -104,6 +104,9 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
   min-height:100svh;
   display:flex; align-items:center; justify-content:center;
   padding:calc(var(--gutter) + 26px) var(--gutter);
+  /* réserve la place du « Découvrir », qui est en position absolue :
+     sans ça, le contenu vient le heurter sur les écrans peu hauts */
+  padding-bottom:clamp(104px,16vh,150px);
   position:relative;
   text-align:center;
   background:
@@ -134,11 +137,12 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
   margin:0 0 .5em;
 }
 .names{
+  font-family:var(--script);   /* même calligraphie que le pied de page */
   font-size:clamp(2.9rem,12vw,6.4rem);
-  line-height:1.02;
+  line-height:1.4;             /* Parisienne a de longues hampes : en dessous, ça déborde */
   color:var(--ink);
   margin:.06em 0 .1em;
-  font-weight:300;
+  font-weight:400;
 }
 .names .amp{
   display:block;
