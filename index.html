@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eva &amp; Kevin — Save the Date</title>
+<meta name="description" content="Eva & Kevin se marient le samedi 5 juin 2027 au Perreux-sur-Marne. Réservez la date et laissez-nous votre adresse pour recevoir le faire-part.">
+<meta name="theme-color" content="#FFF8F0">
+<link rel="canonical" href="https://evakevin.dpdns.org/">
+<meta property="og:title" content="Eva &amp; Kevin — Save the Date">
+<meta property="og:description" content="Nous nous marions le samedi 5 juin 2027. Réservez la date !">
+<meta property="og:url" content="https://evakevin.dpdns.org/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PALETTE — extraite du mood board (Pantone)
+   ============================================================ */
+:root{
+  --cream:      #FFF8F0;   /* fond du mood board */
+  --ivory:      #FBF1E6;
+  --paper:      #FFFCF8;
+  --salmon:      #F5AC99;  /* Pantone 14-1323 TPG — COULEUR PRINCIPALE */
+  --salmon-deep: #C2745C;  /* salmon foncé : grands titres, chiffres, filets */
+  --salmon-ink:  #A9553C;  /* salmon très foncé : petits textes (contraste AA) */
+  --blush:       #FDEDE6;  /* fond teinté salmon */
+  --peach:      #F5B997;   /* Pantone 13-1125 TPG */
+  --rose:       #F7C9C9;   /* Pantone 13-1520 TCX */
+  --sage:       #A7AE9E;   /* Pantone 16-0110 TCX */
+  --sage-deep:  #6F7A68;
+  --gold:       #A8875C;   /* cadres baroques */
+  --gold-light: #CDB289;
+  --gold-deep:  #7E5E3F;
+  --ink:        #3B332B;
+  --ink-soft:   #6B6055;
+
+  --serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:   'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --script: 'Parisienne', 'Cormorant Garamond', cursive;
+
+  --gutter: clamp(20px, 5vw, 64px);
+  --maxw: 1080px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Grain papier — rappelle la texture du mood board */
+body::after{
+  content:'';
+  position:fixed; inset:0;
+  pointer-events:none; z-index:9;
+  opacity:.5;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.16'/></svg>");
+}
+
+/* ============================================================
+   TYPO
+   ============================================================ */
+h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.01em; }
+
+.eyebrow{
+  font-family:var(--sans);
+  font-size:clamp(.62rem,1.5vw,.72rem);
+  font-weight:300;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--salmon-ink);
+  margin:0;
+}
+.script{ font-family:var(--script); color:var(--salmon-deep); font-weight:400; }
+
+/* ============================================================
+   ORNEMENT (branche de sauge + filets dorés)
+   ============================================================ */
+.ornament{ display:block; margin:0 auto; width:clamp(180px,34vw,260px); height:auto; }
+.ornament .rule{ stroke:var(--salmon-deep); stroke-width:.8; opacity:.55; }
+.ornament .leaf{ fill:var(--sage); }
+.ornament .bud{ fill:var(--salmon-deep); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height:100svh;
+  display:flex; align-items:center; justify-content:center;
+  padding:calc(var(--gutter) + 26px) var(--gutter);
+  position:relative;
+  text-align:center;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 42%, #FFFDFA 0%, var(--cream) 56%, #FBE2D7 100%);
+}
+/* double filet doré façon cadre ancien */
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:clamp(14px,2.4vw,30px);
+  border:1px solid rgba(194,116,92,.42);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:calc(clamp(14px,2.4vw,30px) + 7px);
+  border:1px solid rgba(168,135,92,.16);
+  pointer-events:none;
+}
+.hero-inner{ position:relative; z-index:2; max-width:760px; width:100%; }
+
+.hero .script-top{
+  font-family:var(--script);
+  font-size:clamp(1.9rem,6.5vw,3.1rem);
+  color:var(--salmon-deep);
+  line-height:1;
+  margin:0 0 .5em;
+}
+.names{
+  font-size:clamp(2.9rem,12vw,6.4rem);
+  line-height:1.02;
+  color:var(--ink);
+  margin:.06em 0 .1em;
+  font-weight:300;
+}
+.names .amp{
+  display:block;
+  font-family:var(--script);
+  font-size:.42em;
+  color:var(--salmon-deep);
+  margin:.06em 0;
+  font-weight:400;
+}
+.hero .date{
+  font-family:var(--sans);
+  font-size:clamp(.78rem,2.4vw,1rem);
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:1.5em 0 .5em;
+}
+.hero .city{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1rem,3vw,1.28rem);
+  color:var(--sage-deep);
+  margin:0;
+}
+
+.scroll-cue{
+  position:absolute; left:50%; bottom:clamp(26px,5vh,54px);
+  transform:translateX(-50%);
+  z-index:3;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  font-size:.58rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--salmon-ink); text-decoration:none;
+}
+.scroll-cue .line{
+  width:1px; height:44px;
+  background:linear-gradient(to bottom, var(--salmon-deep), transparent);
+  animation:cue 2.6s ease-in-out infinite;
+}
+@keyframes cue{ 0%,100%{ transform:scaleY(.45); transform-origin:top; opacity:.5 } 50%{ transform:scaleY(1); transform-origin:top; opacity:1 } }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{ padding:clamp(72px,11vw,140px) var(--gutter); }
+.wrap{ max-width:var(--maxw); margin:0 auto; }
+.section-head{ text-align:center; margin-bottom:clamp(40px,6vw,70px); }
+.section-head h2{
+  font-size:clamp(1.9rem,5.5vw,3rem);
+  margin:.3em 0 .55em;
+  color:var(--ink);
+}
+.section-head .ornament{ margin-top:.2em; }
+.lede{
+  max-width:560px; margin:0 auto;
+  font-family:var(--serif);
+  font-size:clamp(1.02rem,2.6vw,1.24rem);
+  font-weight:300;
+  color:var(--ink-soft);
+  line-height:1.85;
+}
+
+/* ============================================================
+   COMPTE À REBOURS
+   ============================================================ */
+.countdown-section{ background:var(--blush); position:relative; }
+.countdown-section::before,
+.countdown-section::after{
+  content:''; position:absolute; left:var(--gutter); right:var(--gutter); height:1px;
+  background:linear-gradient(to right, transparent, rgba(194,116,92,.38), transparent);
+}
+.countdown-section::before{ top:0 } .countdown-section::after{ bottom:0 }
+
+/* « Avant de nous dire oui » passe sous les chiffres */
+.cd-outro{ margin:clamp(34px,5vw,56px) 0 0; }
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(6px,1.6vw,20px);
+  max-width:760px; margin:0 auto;
+}
+.cd-cell{
+  position:relative;
+  padding:clamp(16px,3vw,30px) clamp(4px,1.4vw,14px);
+  text-align:center;
+}
+.cd-cell + .cd-cell::before{
+  content:''; position:absolute; left:0; top:22%; bottom:22%;
+  width:1px; background:rgba(194,116,92,.32);
+}
+.cd-num{
+  display:block;
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(2.1rem,9vw,4.2rem);
+  line-height:1;
+  color:var(--salmon-deep);
+  font-variant-numeric:tabular-nums;
+}
+.cd-lab{
+  display:block;
+  margin-top:.85em;
+  font-size:clamp(.5rem,1.7vw,.66rem);
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.cd-done{
+  text-align:center;
+  font-family:var(--script);
+  font-size:clamp(1.8rem,7vw,3rem);
+  color:var(--salmon-deep);
+}
+
+/* ============================================================
+   LIEUX
+   ============================================================ */
+.venues{
+  list-style:none; margin:0; padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(20px,3.5vw,34px);
+}
+@media (min-width:860px){ .venues{ grid-template-columns:repeat(3,1fr); } }
+
+/* chiffre romain de l'étape */
+.step-num{
+  display:block;
+  font-family:var(--serif); font-style:italic;
+  font-size:1.35rem; line-height:1;
+  color:var(--salmon);
+  margin-bottom:1.1em;
+}
+.travel-note{
+  text-align:center;
+  margin:clamp(30px,5vw,46px) auto 0;
+  max-width:460px;
+  font-family:var(--serif); font-style:italic;
+  font-size:clamp(.95rem,2.4vw,1.08rem);
+  color:var(--sage-deep);
+  line-height:1.8;
+}
+.venue{
+  position:relative;
+  background:var(--paper);
+  border:1px solid rgba(194,116,92,.28);
+  padding:clamp(30px,5vw,52px) clamp(22px,4vw,42px);
+  text-align:center;
+}
+/* coins dorés façon cadre */
+.venue .corner{ position:absolute; width:24px; height:24px; stroke:var(--gold); fill:none; stroke-width:1; opacity:.65; }
+.venue .corner.tl{ top:9px; left:9px; }
+.venue .corner.br{ bottom:9px; right:9px; transform:rotate(180deg); }
+
+.venue .tag{
+  font-size:.6rem; letter-spacing:.34em; text-transform:uppercase;
+  color:var(--sage-deep);
+}
+.venue h3{
+  font-size:clamp(1.5rem,4vw,2rem);
+  margin:.55em 0 .35em;
+  color:var(--ink);
+}
+.venue .time{
+  font-family:var(--serif); font-style:italic;
+  font-size:1.1rem; color:var(--salmon-deep);
+  margin:0 0 1em;
+}
+.venue address{
+  font-style:normal;
+  font-size:.92rem;
+  color:var(--ink-soft);
+  line-height:1.9;
+  margin-bottom:1.6em;
+}
+.map-link{
+  display:inline-block;
+  font-size:.64rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--salmon-ink); text-decoration:none;
+  border-bottom:1px solid rgba(194,116,92,.5);
+  padding-bottom:5px;
+  transition:color .3s, border-color .3s;
+}
+.map-link:hover,.map-link:focus-visible{ color:var(--gold-deep); border-color:var(--gold); }
+
+/* ============================================================
+   FORMULAIRE
+   ============================================================ */
+.rsvp{ background:var(--blush); position:relative; }
+.rsvp::before{
+  content:''; position:absolute; top:0; left:var(--gutter); right:var(--gutter); height:1px;
+  background:linear-gradient(to right, transparent, rgba(194,116,92,.38), transparent);
+}
+.form-card{
+  background:var(--paper);
+  border:1px solid rgba(194,116,92,.28);
+  padding:clamp(28px,5.5vw,64px);
+  max-width:760px; margin:0 auto;
+  position:relative;
+}
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.6vw,26px) clamp(18px,3vw,30px); }
+.field.full{ grid-column:1/-1; }
+@media (max-width:620px){ .grid{ grid-template-columns:1fr; } }
+
+.field label{
+  display:block;
+  font-size:.58rem; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:.85em;
+}
+.field .req{ color:var(--salmon-ink); }
+.field input,.field select,.field textarea{
+  width:100%;
+  font-family:var(--serif);
+  font-size:1.06rem;
+  font-weight:400;
+  color:var(--ink);
+  background:transparent;
+  border:0;
+  border-bottom:1px solid rgba(194,116,92,.38);
+  padding:.45em .1em .6em;
+  border-radius:0;
+  transition:border-color .3s;
+  -webkit-appearance:none; appearance:none;
+}
+.field textarea{ resize:vertical; min-height:80px; line-height:1.7; }
+.field select{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23C2745C' stroke-width='1.2'/></svg>");
+  background-repeat:no-repeat; background-position:right .2em center;
+  cursor:pointer;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none; border-bottom-color:var(--salmon-ink); border-bottom-width:1.5px;
+}
+.field input::placeholder,.field textarea::placeholder{ color:#C6BBAE; font-style:italic; }
+.field.invalid input,.field.invalid select{ border-bottom-color:#C0553F; }
+.field .err{
+  display:none;
+  font-size:.66rem; letter-spacing:.06em; color:#C0553F; margin-top:.5em;
+}
+.field.invalid .err{ display:block; }
+
+.form-actions{ text-align:center; margin-top:clamp(32px,5vw,48px); }
+.btn{
+  font-family:var(--sans); font-weight:300;
+  font-size:.68rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--salmon-ink);
+  background:transparent;
+  border:1px solid var(--salmon-deep);
+  padding:1.25em 3.2em;
+  cursor:pointer;
+  transition:background .4s, color .4s, letter-spacing .4s;
+}
+.btn:hover:not(:disabled),.btn:focus-visible{ background:var(--salmon-ink); color:#fff; letter-spacing:.34em; }
+.btn:disabled{ opacity:.5; cursor:progress; }
+.form-note{ font-size:.72rem; color:var(--ink-soft); margin-top:1.8em; font-style:italic; font-family:var(--serif); }
+
+.thanks{ display:none; text-align:center; padding:clamp(14px,3vw,28px) 0; }
+.thanks.on{ display:block; animation:fade .9s ease both; }
+.thanks .script{ font-size:clamp(2rem,7vw,3.2rem); line-height:1.2; display:block; margin-bottom:.35em; }
+.thanks p{ color:var(--ink-soft); max-width:440px; margin:1.4em auto 0; font-family:var(--serif); font-size:1.08rem; }
+.form-error{
+  display:none; margin-top:1.8em;
+  font-size:.86rem; color:#C0553F; text-align:center;
+  font-family:var(--serif); line-height:1.7;
+}
+.form-error.on{ display:block; }
+.form-error a{ color:var(--salmon-ink); }
+
+/* ============================================================
+   FOOTER + SÉLECTEUR DE LANGUE
+   ============================================================ */
+footer{
+  text-align:center;
+  padding:clamp(48px,7vw,80px) var(--gutter) clamp(40px,6vw,64px);
+  background:var(--cream);
+}
+footer .script{ font-size:clamp(1.7rem,6vw,2.5rem); display:block; margin-bottom:.5em; }
+footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-soft); }
+
+.lang{
+  position:fixed; top:0; right:0; z-index:20;
+  display:flex; align-items:center; gap:2px;
+  padding:clamp(16px,2.6vw,30px) clamp(18px,3vw,34px);
+  font-size:.64rem; letter-spacing:.2em;
+}
+.lang button{
+  background:none; border:0; cursor:pointer;
+  font-family:var(--sans); font-size:inherit; letter-spacing:inherit;
+  color:var(--ink-soft); opacity:.6;
+  padding:6px 7px;
+  transition:opacity .3s,color .3s;
+}
+.lang button.on{ opacity:1; color:var(--salmon-ink); }
+.lang button:hover{ opacity:1; }
+.lang .sep{ color:var(--salmon); opacity:.9; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fade{ from{ opacity:0; transform:translateY(14px) } to{ opacity:1; transform:none } }
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1); }
+.reveal.in{ opacity:1; transform:none; }
+.hero-inner > *{ opacity:0; animation:fade 1.3s cubic-bezier(.22,.61,.36,1) both; }
+.hero-inner > *:nth-child(1){ animation-delay:.15s }
+.hero-inner > *:nth-child(2){ animation-delay:.35s }
+.hero-inner > *:nth-child(3){ animation-delay:.55s }
+.hero-inner > *:nth-child(4){ animation-delay:.75s }
+.hero-inner > *:nth-child(5){ animation-delay:.9s }
+.hero-inner > *:nth-child(6){ animation-delay:1.05s }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none }
+  .hero-inner > *{ opacity:1; animation:none }
+  .scroll-cue .line{ animation:none }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ SÉLECTEUR DE LANGUE ══════════ -->
+<div class="lang" role="group" aria-label="Langue / Idioma">
+  <button type="button" data-lang="fr" class="on">FR</button>
+  <span class="sep">·</span>
+  <button type="button" data-lang="es">ES</button>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="script-top" data-i18n="saveTheDate">Save the Date</p>
+    <h1 class="names">
+      <span id="name1">Eva</span>
+      <span class="amp">&amp;</span>
+      <span id="name2">Kevin</span>
+    </h1>
+    <svg class="ornament" viewBox="0 0 260 26" aria-hidden="true">
+      <line class="rule" x1="0" y1="13" x2="96" y2="13"/>
+      <line class="rule" x1="164" y1="13" x2="260" y2="13"/>
+      <path class="leaf" d="M130 3c5.5 4 5.5 15 0 20-5.5-5-5.5-16 0-20z"/>
+      <path class="leaf" d="M112 13c6-5.5 14-4 18 0-4 4-12 5.5-18 0z" opacity=".85"/>
+      <path class="leaf" d="M148 13c-6-5.5-14-4-18 0 4 4 12 5.5 18 0z" opacity=".85"/>
+      <circle class="bud" cx="104" cy="13" r="1.9"/>
+      <circle class="bud" cx="156" cy="13" r="1.9"/>
+    </svg>
+    <p class="date" id="heroDate">Samedi 5 juin 2027</p>
+    <p class="city" id="heroCity">Le Perreux-sur-Marne · Coulommiers</p>
+  </div>
+  <a class="scroll-cue" href="#compte-a-rebours" aria-label="Défiler">
+    <span data-i18n="scroll">Découvrir</span>
+    <span class="line" aria-hidden="true"></span>
+  </a>
+</header>
+
+<!-- ══════════ COMPTE À REBOURS ══════════ -->
+<section class="countdown-section" id="compte-a-rebours">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="cdEyebrow">Plus que</p>
+    </div>
+    <div class="countdown reveal" id="countdown" role="timer" aria-live="off">
+      <div class="cd-cell"><span class="cd-num" id="cdD">—</span><span class="cd-lab" data-i18n="days">Jours</span></div>
+      <div class="cd-cell"><span class="cd-num" id="cdH">—</span><span class="cd-lab" data-i18n="hours">Heures</span></div>
+      <div class="cd-cell"><span class="cd-num" id="cdM">—</span><span class="cd-lab" data-i18n="minutes">Minutes</span></div>
+      <div class="cd-cell"><span class="cd-num" id="cdS">—</span><span class="cd-lab" data-i18n="seconds">Secondes</span></div>
+    </div>
+    <div class="section-head cd-outro reveal">
+      <h2 data-i18n="cdTitle">Avant de nous dire oui</h2>
+    </div>
+    <div class="cd-done" id="cdDone" hidden data-i18n="cdDone">C'est aujourd'hui</div>
+  </div>
+</section>
+
+<!-- ══════════ LIEUX ══════════ -->
+<section id="lieux">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="venuesEyebrow">Le jour J</p>
+      <h2 data-i18n="venuesTitle">Le déroulé de la journée</h2>
+      <svg class="ornament" viewBox="0 0 260 26" aria-hidden="true">
+        <line class="rule" x1="0" y1="13" x2="96" y2="13"/>
+        <line class="rule" x1="164" y1="13" x2="260" y2="13"/>
+        <path class="leaf" d="M130 3c5.5 4 5.5 15 0 20-5.5-5-5.5-16 0-20z"/>
+        <path class="leaf" d="M112 13c6-5.5 14-4 18 0-4 4-12 5.5-18 0z" opacity=".85"/>
+        <path class="leaf" d="M148 13c-6-5.5-14-4-18 0 4 4 12 5.5 18 0z" opacity=".85"/>
+        <circle class="bud" cx="104" cy="13" r="1.9"/>
+        <circle class="bud" cx="156" cy="13" r="1.9"/>
+      </svg>
+    </div>
+    <ol class="venues" id="venues"></ol>
+    <p class="travel-note reveal" id="travelNote" hidden></p>
+  </div>
+</section>
+
+<!-- ══════════ FORMULAIRE ══════════ -->
+<section class="rsvp" id="adresse">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-i18n="formEyebrow">Une dernière chose</p>
+      <h2 data-i18n="formTitle">Laissez-nous votre adresse</h2>
+      <p class="lede" data-i18n="formLede">Ceci n'est qu'un avant-goût : le faire-part officiel, lui, arrivera par la poste. Laissez-nous vos coordonnées pour que nous puissions vous l'envoyer.</p>
+    </div>
+
+    <div class="form-card reveal">
+      <form id="rsvpForm" novalidate>
+        <div class="grid">
+          <div class="field"><label for="f_prenom" data-i18n="lFirst">Prénom <span class="req">*</span></label><input id="f_prenom" name="prenom" type="text" autocomplete="given-name" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
+          <div class="field"><label for="f_nom" data-i18n="lLast">Nom <span class="req">*</span></label><input id="f_nom" name="nom" type="text" autocomplete="family-name" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
+          <div class="field"><label for="f_email" data-i18n="lEmail">Email <span class="req">*</span></label><input id="f_email" name="email" type="email" autocomplete="email" required><span class="err" data-i18n="errEmail">Adresse email invalide</span></div>
+          <div class="field"><label for="f_tel" data-i18n="lPhone">Téléphone</label><input id="f_tel" name="tel" type="tel" autocomplete="tel"><span class="err"></span></div>
+          <div class="field full"><label for="f_adresse" data-i18n="lAddr">Adresse <span class="req">*</span></label><input id="f_adresse" name="adresse" type="text" autocomplete="address-line1" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
+          <div class="field full"><label for="f_comp" data-i18n="lAddr2">Complément d'adresse</label><input id="f_comp" name="complement" type="text" autocomplete="address-line2"><span class="err"></span></div>
+          <div class="field"><label for="f_cp" data-i18n="lZip">Code postal <span class="req">*</span></label><input id="f_cp" name="cp" type="text" inputmode="numeric" autocomplete="postal-code" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
+          <div class="field"><label for="f_ville" data-i18n="lCity">Ville <span class="req">*</span></label><input id="f_ville" name="ville" type="text" autocomplete="address-level2" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
+          <div class="field full"><label for="f_pays" data-i18n="lCountry">Pays <span class="req">*</span></label><input id="f_pays" name="pays" type="text" autocomplete="country-name" value="France" required><span class="err" data-i18n="errReq">Ce champ est requis</span></div>
+          <div class="field"><label for="f_adultes" data-i18n="lAdults">Nombre d'adultes</label><select id="f_adultes" name="adultes"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><span class="err"></span></div>
+          <div class="field"><label for="f_enfants" data-i18n="lKids">Nombre d'enfants</label><select id="f_enfants" name="enfants"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select><span class="err"></span></div>
+          <div class="field full"><label for="f_mot" data-i18n="lMsg">Un petit mot (facultatif)</label><textarea id="f_mot" name="mot" rows="3"></textarea><span class="err"></span></div>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit" id="submitBtn" data-i18n="submit">Envoyer</button>
+          <p class="form-note" data-i18n="formNote">Vos coordonnées ne servent qu'à l'envoi du faire-part.</p>
+          <p class="form-error" id="formError"></p>
+        </div>
+      </form>
+
+      <div class="thanks" id="thanks">
+        <span class="script" data-i18n="thanksTitle">Merci&nbsp;!</span>
+        <svg class="ornament" viewBox="0 0 260 26" aria-hidden="true">
+          <line class="rule" x1="0" y1="13" x2="96" y2="13"/>
+          <line class="rule" x1="164" y1="13" x2="260" y2="13"/>
+          <path class="leaf" d="M130 3c5.5 4 5.5 15 0 20-5.5-5-5.5-16 0-20z"/>
+          <path class="leaf" d="M112 13c6-5.5 14-4 18 0-4 4-12 5.5-18 0z" opacity=".85"/>
+          <path class="leaf" d="M148 13c-6-5.5-14-4-18 0 4 4 12 5.5 18 0z" opacity=".85"/>
+          <circle class="bud" cx="104" cy="13" r="1.9"/><circle class="bud" cx="156" cy="13" r="1.9"/>
+        </svg>
+        <p data-i18n="thanksBody">Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d'ici là, notez bien la date&nbsp;!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="script" id="footNames">Eva &amp; Kevin</span>
+  <p class="sig" id="footDate">05 · 06 · 2027</p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ①  CONFIG — TOUT SE MODIFIE ICI, ET NULLE PART AILLEURS
+   ⚠️  Les valeurs ci-dessous sont des EXEMPLES à remplacer.
+   ═══════════════════════════════════════════════════════════════ */
+const CONFIG = {
+
+  /* ---- Les mariés ------------------------------------------- */
+  name1: 'Eva',
+  name2: 'Kevin',
+
+  /* ---- Date du mariage (pilote le compte à rebours) ---------
+     Format ISO avec fuseau horaire. +02:00 = heure d'été France.
+     13h30 = heure de rendez-vous à la mairie. */
+  dateISO: '2027-06-05T13:30:00+02:00',
+  dateShort: '05 · 06 · 2027',
+
+  /* ---- Le déroulé de la journée, dans l'ordre ---------------
+     Trois étapes qui s'enchaînent. Pour en ajouter/retirer une,
+     ajoute/retire simplement un bloc ici : le site s'adapte. */
+  steps: [
+    {
+      tag:  'civil',                                    // libellé traduit (voir I18N)
+      name: 'Mairie du Perreux-sur-Marne',
+      address: ['Place de la Libération', '94170 Le Perreux-sur-Marne'],
+      time: { fr: '13h30', es: '13:30' }
+    },
+    {
+      tag:  'religious',
+      name: 'Église Saint-Jean-Baptiste',
+      address: ['Allée de Bellevue', '94170 Le Perreux-sur-Marne'],  // ⚠️ numéro de rue à confirmer
+      time: { fr: 'Dans la foulée', es: 'A continuación' }           // ⚠️ horaire exact ?
+    },
+    {
+      tag:  'party',
+      name: 'Domaine de Pontmoulin',
+      address: ['Pontmoulin', '77120 Coulommiers'],     // ⚠️ adresse précise à confirmer
+      time: { fr: 'Dans la foulée', es: 'A continuación' }  // ⚠️ horaire exact ?
+    }
+  ],
+
+  /* Mot sous le déroulé — mets à '' pour le masquer. */
+  showTravelNote: false,  // mot sur le trajet église → domaine (~50 km) : masqué
+
+  /* ---- Texte de la date / lieu affiché dans le hero --------- */
+  heroDate: { fr: 'Samedi 5 juin 2027',  es: 'Sábado 5 de junio de 2027' },
+  heroCity: { fr: 'Le Perreux-sur-Marne · Coulommiers',
+              es: 'Le Perreux-sur-Marne · Coulommiers' },
+
+  /* ═══ GOOGLE FORM ══════════════════════════════════════════
+     Lance le script « creer-formulaire.gs » dans Google Apps
+     Script : il crée le formulaire ET te donne le bloc exact
+     à coller ci-dessous. Tant que c'est vide, l'envoi est
+     désactivé (message d'erreur explicite côté visiteur).      */
+  form: {
+    actionUrl: '',            // ex. https://docs.google.com/forms/d/e/1FAIpQL.../formResponse
+    viewUrl:   '',            // ex. https://docs.google.com/forms/d/e/1FAIpQL.../viewform
+    entries: {
+      prenom:     '',         // ex. 'entry.123456789'
+      nom:        '',
+      email:      '',
+      tel:        '',
+      adresse:    '',
+      complement: '',
+      cp:         '',
+      ville:      '',
+      pays:       '',
+      adultes:    '',
+      enfants:    '',
+      mot:        ''
+    }
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   ②  TRADUCTIONS
+   ═══════════════════════════════════════════════════════════════ */
+const I18N = {
+  fr: {
+    title:        'Save the Date',
+    saveTheDate:  'Save the Date',
+    scroll:       'Découvrir',
+    cdEyebrow:    'Plus que',
+    cdTitle:      'Avant de nous dire oui',
+    days:'Jours', hours:'Heures', minutes:'Minutes', seconds:'Secondes',
+    cdDone:       'C’est aujourd’hui',
+    venuesEyebrow:'Le jour J',
+    venuesTitle:  'Le déroulé de la journée',
+    civil:        'Cérémonie civile',
+    religious:    'Cérémonie religieuse',
+    party:        'Réception',
+    travelNote:   'Comptez environ une heure de route entre l’église et le domaine — nous vous donnerons tous les détails dans le faire-part.',
+    map:          'Voir sur la carte',
+    formEyebrow:  'Une dernière chose',
+    formTitle:    'Laissez-nous votre adresse',
+    formLede:     'Ceci n’est qu’un avant-goût : le faire-part officiel, lui, arrivera par la poste. Laissez-nous vos coordonnées pour que nous puissions vous l’envoyer.',
+    lFirst:'Prénom', lLast:'Nom', lEmail:'Email', lPhone:'Téléphone',
+    lAddr:'Adresse', lAddr2:'Complément d’adresse', lZip:'Code postal',
+    lCity:'Ville', lCountry:'Pays', lAdults:'Nombre d’adultes',
+    lKids:'Nombre d’enfants', lMsg:'Un petit mot (facultatif)',
+    submit:       'Envoyer',
+    sending:      'Envoi…',
+    formNote:     'Vos coordonnées ne servent qu’à l’envoi du faire-part.',
+    errReq:       'Ce champ est requis',
+    errEmail:     'Adresse email invalide',
+    errSend:      'L’envoi a échoué. Réessayez, ou remplissez le formulaire ici :',
+    errConfig:    'Le formulaire n’est pas encore connecté. (Renseignez CONFIG.form dans index.html.)',
+    thanksTitle:  'Merci !',
+    thanksBody:   'Nous avons bien reçu vos coordonnées. Le faire-part vous parviendra en temps voulu — d’ici là, notez bien la date !'
+  },
+  es: {
+    title:        'Reserva la fecha',
+    saveTheDate:  'Reserva la fecha',
+    scroll:       'Descubrir',
+    cdEyebrow:    'Solo quedan',
+    cdTitle:      'Antes de darnos el sí',
+    days:'Días', hours:'Horas', minutes:'Minutos', seconds:'Segundos',
+    cdDone:       '¡Es hoy!',
+    venuesEyebrow:'El gran día',
+    venuesTitle:  'El programa del día',
+    civil:        'Ceremonia civil',
+    religious:    'Ceremonia religiosa',
+    party:        'Recepción',
+    travelNote:   'Hay aproximadamente una hora de trayecto entre la iglesia y el dominio — os daremos todos los detalles en la invitación.',
+    map:          'Ver en el mapa',
+    formEyebrow:  'Una última cosa',
+    formTitle:    'Déjanos tu dirección',
+    formLede:     'Esto es solo un adelanto: la invitación oficial llegará por correo postal. Déjanos tus datos para que podamos enviártela.',
+    lFirst:'Nombre', lLast:'Apellidos', lEmail:'Correo electrónico', lPhone:'Teléfono',
+    lAddr:'Dirección', lAddr2:'Piso, puerta, etc.', lZip:'Código postal',
+    lCity:'Ciudad', lCountry:'País', lAdults:'Número de adultos',
+    lKids:'Número de niños', lMsg:'Unas palabras (opcional)',
+    submit:       'Enviar',
+    sending:      'Enviando…',
+    formNote:     'Tus datos solo se usarán para enviarte la invitación.',
+    errReq:       'Este campo es obligatorio',
+    errEmail:     'Correo electrónico no válido',
+    errSend:      'No se pudo enviar. Inténtalo de nuevo o rellena el formulario aquí:',
+    errConfig:    'El formulario aún no está conectado. (Rellena CONFIG.form en index.html.)',
+    thanksTitle:  '¡Gracias!',
+    thanksBody:   'Hemos recibido tus datos. La invitación te llegará a su debido tiempo — mientras tanto, ¡apunta bien la fecha!'
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   ③  MISE EN PLACE
+   ═══════════════════════════════════════════════════════════════ */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+let LANG = 'fr';
+const mapsUrl = a => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a.join(', '));
+
+function applyContent() {
+  const t = I18N[LANG];
+
+  document.documentElement.lang = LANG;
+  document.title = CONFIG.name1 + ' & ' + CONFIG.name2 + ' — ' + t.title;
+
+  /* textes traduits */
+  $$('[data-i18n]').forEach(el => {
+    const v = t[el.dataset.i18n];
+    if (v === undefined) return;
+    const req = el.querySelector('.req');            // garde l'astérisque des labels
+    el.textContent = v;
+    if (req) el.append(' ', req);
+  });
+
+  /* contenu piloté par CONFIG */
+  $('#name1').textContent  = CONFIG.name1;
+  $('#name2').textContent  = CONFIG.name2;
+  $('#footNames').textContent = CONFIG.name1 + ' & ' + CONFIG.name2;
+  $('#footDate').textContent  = CONFIG.dateShort;
+  $('#heroDate').textContent  = CONFIG.heroDate[LANG];
+  $('#heroCity').textContent  = CONFIG.heroCity[LANG];
+
+  renderSteps();
+}
+
+/* --- Les étapes de la journée, construites depuis CONFIG.steps --- */
+const ROMAN  = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+const CORNER = '<path d="M23 1H6C3.2 1 1 3.2 1 6v17"/><path d="M19 1v2M1 19h2"/>';
+let stepsRendered = false;
+
+function renderSteps() {
+  const t = I18N[LANG], list = $('#venues');
+  list.textContent = '';
+
+  CONFIG.steps.forEach((s, i) => {
+    const li = document.createElement('li');
+    li.className = 'venue reveal' + (stepsRendered ? ' in' : '');
+    li.innerHTML =
+      '<svg class="corner tl" viewBox="0 0 24 24" aria-hidden="true">' + CORNER + '</svg>' +
+      '<svg class="corner br" viewBox="0 0 24 24" aria-hidden="true">' + CORNER + '</svg>';
+
+    const el = (tag, cls, txt) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (txt !== undefined) n.textContent = txt;
+      return n;
+    };
+
+    const addr = el('address');
+    s.address.forEach((line, k) => {
+      if (k) addr.appendChild(document.createElement('br'));
+      addr.appendChild(document.createTextNode(line));
+    });
+
+    const link = el('a', 'map-link', t.map);
+    link.href = mapsUrl([s.name].concat(s.address));
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.setAttribute('aria-label', t.map + ' — ' + s.name);
+
+    li.append(
+      el('span', 'step-num', ROMAN[i] || String(i + 1)),
+      el('p', 'tag', t[s.tag] || s.tag),
+      el('h3', null, s.name),
+      el('p', 'time', s.time[LANG]),
+      addr,
+      document.createElement('br'),
+      link
+    );
+    list.appendChild(li);
+  });
+
+  const note = $('#travelNote');
+  note.hidden = !CONFIG.showTravelNote;
+  if (CONFIG.showTravelNote) note.textContent = t.travelNote;
+
+  if (!stepsRendered) { observeReveals(); stepsRendered = true; }
+}
+
+$$('.lang button').forEach(b => b.addEventListener('click', () => {
+  LANG = b.dataset.lang;
+  $$('.lang button').forEach(x => x.classList.toggle('on', x === b));
+  $('#formError').classList.remove('on');   // le message repart dans la bonne langue
+  applyContent();
+}));
+
+/* ═══════════════════════════════════════════════════════════════
+   ④  COMPTE À REBOURS
+   ═══════════════════════════════════════════════════════════════ */
+(function countdown() {
+  const target = new Date(CONFIG.dateISO).getTime();
+  const box = $('#countdown'), done = $('#cdDone');
+  const pad = n => String(n).padStart(2, '0');
+
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) { box.hidden = true; done.hidden = false; return; }
+    const s = Math.floor(diff / 1000);
+    $('#cdD').textContent = Math.floor(s / 86400);
+    $('#cdH').textContent = pad(Math.floor(s / 3600) % 24);
+    $('#cdM').textContent = pad(Math.floor(s / 60) % 60);
+    $('#cdS').textContent = pad(s % 60);
+    requestAnimationFrame(() => setTimeout(tick, 1000 - (Date.now() % 1000)));
+  }
+  if (isNaN(target)) { box.hidden = true; console.warn('CONFIG.dateISO invalide'); return; }
+  tick();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   ⑤  APPARITION AU DÉFILEMENT
+   ═══════════════════════════════════════════════════════════════ */
+let observeReveals = () => $$('.reveal').forEach(e => e.classList.add('in'));
+
+(function reveal() {
+  if (!('IntersectionObserver' in window)) { observeReveals(); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+  observeReveals = () => $$('.reveal:not(.in)').forEach(e => io.observe(e));
+  observeReveals();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   ⑥  FORMULAIRE → GOOGLE FORM
+   ═══════════════════════════════════════════════════════════════ */
+(function rsvp() {
+  const form = $('#rsvpForm'), btn = $('#submitBtn'),
+        errBox = $('#formError'), thanks = $('#thanks');
+  const REQUIRED = ['prenom', 'nom', 'email', 'adresse', 'cp', 'ville', 'pays'];
+  const emailOk  = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+
+  const showError = html => { errBox.innerHTML = html; errBox.classList.add('on'); };
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const t = I18N[LANG];
+    errBox.classList.remove('on');
+
+    /* --- validation --- */
+    let firstBad = null;
+    $$('.field', form).forEach(f => f.classList.remove('invalid'));
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    REQUIRED.forEach(k => {
+      if (!String(data[k] || '').trim()) {
+        const f = form.elements[k].closest('.field');
+        f.classList.add('invalid');
+        firstBad = firstBad || f;
+      }
+    });
+    if (data.email && String(data.email).trim() && !emailOk(data.email.trim())) {
+      const f = form.elements.email.closest('.field');
+      f.classList.add('invalid');
+      firstBad = firstBad || f;
+    }
+    if (firstBad) {
+      firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      (firstBad.querySelector('input, select') || {}).focus?.();
+      return;
+    }
+
+    /* --- formulaire non encore branché --- */
+    if (!CONFIG.form.actionUrl || !CONFIG.form.entries.prenom) {
+      showError(t.errConfig);
+      return;
+    }
+
+    /* --- envoi --- */
+    btn.disabled = true;
+    btn.textContent = t.sending;
+
+    const body = new URLSearchParams();
+    Object.entries(CONFIG.form.entries).forEach(([key, entryId]) => {
+      if (entryId) body.append(entryId, data[key] ?? '');
+    });
+
+    try {
+      await fetch(CONFIG.form.actionUrl, {
+        method: 'POST',
+        mode: 'no-cors',                       // Google ne renvoie pas d'en-tête CORS
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString()
+      });
+      form.style.display = 'none';
+      thanks.classList.add('on');
+      thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = t.submit;
+      const link = CONFIG.form.viewUrl
+        ? ' <a href="' + CONFIG.form.viewUrl + '" target="_blank" rel="noopener">Google Forms</a>'
+        : '';
+      showError(t.errSend + link);
+    }
+  });
+
+  /* on efface l'erreur dès que l'invité corrige */
+  form.addEventListener('input', (e) => {
+    const f = e.target.closest('.field');
+    if (f) f.classList.remove('invalid');
+  });
+})();
+
+applyContent();
+</script>
+</body>
+</html>
