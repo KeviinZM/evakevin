@@ -143,12 +143,13 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
 /* conteneurs de référence pour le positionnement */
 #lieux .wrap{ position:relative; }
 
-/* En-tête posé directement sur le saumon : il faut assombrir,
-   le saumon foncé sur saumon ne fait que 2,8:1 de contraste. */
-.on-salmon .eyebrow{ color:var(--ink); }
-.on-salmon .ornament .rule{ stroke:var(--ink-soft); opacity:.5; }
-.on-salmon .ornament .bud{ fill:var(--ink-soft); }
-.on-salmon.travel-note{ color:var(--ink-soft); }
+/* Tout ce qui est posé directement sur l'aplat saumon ressort en blanc. */
+.on-salmon .eyebrow{ color:#fff; }
+.on-salmon h2{ color:#fff; }
+.on-salmon .ornament .rule{ stroke:#fff; opacity:.75; }
+.on-salmon .ornament .leaf{ fill:#fff; opacity:.8; }
+.on-salmon .ornament .bud{ fill:#fff; }
+.on-salmon.travel-note{ color:#fff; }
 
 @media (max-width:560px){
   .bq-lieux, .bq-form{ display:none; }   /* on allège sur petit écran */
@@ -222,11 +223,11 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
   z-index:3;
   display:flex; flex-direction:column; align-items:center; gap:10px;
   font-size:.58rem; letter-spacing:.32em; text-transform:uppercase;
-  color:var(--ink); text-decoration:none;
+  color:#fff; text-decoration:none;
 }
 .scroll-cue .line{
   width:1px; height:44px;
-  background:var(--ink);   /* aplat, aucun dégradé */
+  background:#fff;   /* aplat, aucun dégradé */
   animation:cue 2.6s ease-in-out infinite;
 }
 @keyframes cue{ 0%,100%{ transform:scaleY(.45); transform-origin:top; opacity:.5 } 50%{ transform:scaleY(1); transform-origin:top; opacity:1 } }
@@ -371,7 +372,7 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 .map-link{
   display:inline-block;
   font-size:.64rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--ink); text-decoration:none;
+  color:#fff; text-decoration:none;
   border-bottom:1px solid rgba(194,116,92,.5);
   padding-bottom:5px;
   transition:color .3s, border-color .3s;
@@ -467,8 +468,8 @@ footer{
   background:var(--salmon);
 }
 /* Sur l'aplat saumon, le saumon foncé ne fait que 1,9:1 : il faut du brun foncé. */
-footer .script{ font-size:clamp(1.7rem,6vw,2.5rem); display:block; margin-bottom:.5em; color:var(--ink); }
-footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ink); }
+footer .script{ font-size:clamp(1.7rem,6vw,2.5rem); display:block; margin-bottom:.5em; color:#fff; }
+footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:#fff; }
 
 .lang{
   position:fixed; top:0; right:0; z-index:20;
