@@ -106,45 +106,55 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
    ============================================================ */
 .lace-card{
   background:#fff;
-  /* Le blanc de la carte s'arrête au bord intérieur : c'est le
-     napperon (border-image) qui peint la bande festonnée. */
+  /* Le blanc de la carte s'arrête au bord intérieur : c'est la
+     dentelle (border-image) qui peint la bande ajourée. */
   background-clip:padding-box;
-  /* 20px = taille native du motif, donc rendu 1:1 sans rupture.
-     Le napperon est fait de lobes circulaires qui se chevauchent
-     — la vraie géométrie d'un napperon en papier — et de deux
-     rangées de perforations couleur saumon. */
-  border:20px solid transparent;
-  border-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><g fill='%23ffffff'><rect x='5' y='5' width='50' height='50'/><circle cx='5' cy='5' r='5'/><circle cx='15' cy='5' r='5'/><circle cx='25' cy='5' r='5'/><circle cx='35' cy='5' r='5'/><circle cx='45' cy='5' r='5'/><circle cx='55' cy='5' r='5'/><circle cx='5' cy='55' r='5'/><circle cx='15' cy='55' r='5'/><circle cx='25' cy='55' r='5'/><circle cx='35' cy='55' r='5'/><circle cx='45' cy='55' r='5'/><circle cx='55' cy='55' r='5'/><circle cx='5' cy='15' r='5'/><circle cx='5' cy='25' r='5'/><circle cx='5' cy='35' r='5'/><circle cx='5' cy='45' r='5'/><circle cx='55' cy='15' r='5'/><circle cx='55' cy='25' r='5'/><circle cx='55' cy='35' r='5'/><circle cx='55' cy='45' r='5'/></g><g fill='%23F5AC99'><circle cx='5' cy='8.5' r='1.9'/><circle cx='15' cy='8.5' r='1.9'/><circle cx='25' cy='8.5' r='1.9'/><circle cx='35' cy='8.5' r='1.9'/><circle cx='45' cy='8.5' r='1.9'/><circle cx='55' cy='8.5' r='1.9'/><circle cx='5' cy='51.5' r='1.9'/><circle cx='15' cy='51.5' r='1.9'/><circle cx='25' cy='51.5' r='1.9'/><circle cx='35' cy='51.5' r='1.9'/><circle cx='45' cy='51.5' r='1.9'/><circle cx='55' cy='51.5' r='1.9'/><circle cx='8.5' cy='15' r='1.9'/><circle cx='8.5' cy='25' r='1.9'/><circle cx='8.5' cy='35' r='1.9'/><circle cx='8.5' cy='45' r='1.9'/><circle cx='51.5' cy='15' r='1.9'/><circle cx='51.5' cy='25' r='1.9'/><circle cx='51.5' cy='35' r='1.9'/><circle cx='51.5' cy='45' r='1.9'/><circle cx='10' cy='14' r='1.1'/><circle cx='30' cy='14' r='1.1'/><circle cx='50' cy='14' r='1.1'/><circle cx='10' cy='46' r='1.1'/><circle cx='30' cy='46' r='1.1'/><circle cx='50' cy='46' r='1.1'/><circle cx='14' cy='30' r='1.1'/><circle cx='46' cy='30' r='1.1'/></g></svg>") 20 round;
+  /* 26px = taille native du motif, donc rendu 1:1 sans rupture.
+     Le motif : festons picot sur le bord, médaillons ajourés à
+     couronne de huit œillets, et deux filets fins. Les ajours
+     laissent voir le saumon du fond. */
+  border:26px solid transparent;
+  border-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='78' height='78'><g fill='%23ffffff'><rect x='3.25' y='3.25' width='71.5' height='71.5'/><circle cx='3.25' cy='3.25' r='3.25'/><circle cx='3.25' cy='74.75' r='3.25'/><circle cx='3.25' cy='3.25' r='3.25'/><circle cx='74.75' cy='3.25' r='3.25'/><circle cx='9.75' cy='3.25' r='3.25'/><circle cx='9.75' cy='74.75' r='3.25'/><circle cx='3.25' cy='9.75' r='3.25'/><circle cx='74.75' cy='9.75' r='3.25'/><circle cx='16.25' cy='3.25' r='3.25'/><circle cx='16.25' cy='74.75' r='3.25'/><circle cx='3.25' cy='16.25' r='3.25'/><circle cx='74.75' cy='16.25' r='3.25'/><circle cx='22.75' cy='3.25' r='3.25'/><circle cx='22.75' cy='74.75' r='3.25'/><circle cx='3.25' cy='22.75' r='3.25'/><circle cx='74.75' cy='22.75' r='3.25'/><circle cx='29.25' cy='3.25' r='3.25'/><circle cx='29.25' cy='74.75' r='3.25'/><circle cx='3.25' cy='29.25' r='3.25'/><circle cx='74.75' cy='29.25' r='3.25'/><circle cx='35.75' cy='3.25' r='3.25'/><circle cx='35.75' cy='74.75' r='3.25'/><circle cx='3.25' cy='35.75' r='3.25'/><circle cx='74.75' cy='35.75' r='3.25'/><circle cx='42.25' cy='3.25' r='3.25'/><circle cx='42.25' cy='74.75' r='3.25'/><circle cx='3.25' cy='42.25' r='3.25'/><circle cx='74.75' cy='42.25' r='3.25'/><circle cx='48.75' cy='3.25' r='3.25'/><circle cx='48.75' cy='74.75' r='3.25'/><circle cx='3.25' cy='48.75' r='3.25'/><circle cx='74.75' cy='48.75' r='3.25'/><circle cx='55.25' cy='3.25' r='3.25'/><circle cx='55.25' cy='74.75' r='3.25'/><circle cx='3.25' cy='55.25' r='3.25'/><circle cx='74.75' cy='55.25' r='3.25'/><circle cx='61.75' cy='3.25' r='3.25'/><circle cx='61.75' cy='74.75' r='3.25'/><circle cx='3.25' cy='61.75' r='3.25'/><circle cx='74.75' cy='61.75' r='3.25'/><circle cx='68.25' cy='3.25' r='3.25'/><circle cx='68.25' cy='74.75' r='3.25'/><circle cx='3.25' cy='68.25' r='3.25'/><circle cx='74.75' cy='68.25' r='3.25'/><circle cx='74.75' cy='3.25' r='3.25'/><circle cx='74.75' cy='74.75' r='3.25'/><circle cx='3.25' cy='74.75' r='3.25'/><circle cx='74.75' cy='74.75' r='3.25'/></g><g fill='%23F5AC99'><circle cx='3.25' cy='4.6' r='.75'/><circle cx='3.25' cy='73.4' r='.75'/><circle cx='4.6' cy='3.25' r='.75'/><circle cx='73.4' cy='3.25' r='.75'/><circle cx='9.75' cy='4.6' r='.75'/><circle cx='9.75' cy='73.4' r='.75'/><circle cx='4.6' cy='9.75' r='.75'/><circle cx='73.4' cy='9.75' r='.75'/><circle cx='16.25' cy='4.6' r='.75'/><circle cx='16.25' cy='73.4' r='.75'/><circle cx='4.6' cy='16.25' r='.75'/><circle cx='73.4' cy='16.25' r='.75'/><circle cx='22.75' cy='4.6' r='.75'/><circle cx='22.75' cy='73.4' r='.75'/><circle cx='4.6' cy='22.75' r='.75'/><circle cx='73.4' cy='22.75' r='.75'/><circle cx='29.25' cy='4.6' r='.75'/><circle cx='29.25' cy='73.4' r='.75'/><circle cx='4.6' cy='29.25' r='.75'/><circle cx='73.4' cy='29.25' r='.75'/><circle cx='35.75' cy='4.6' r='.75'/><circle cx='35.75' cy='73.4' r='.75'/><circle cx='4.6' cy='35.75' r='.75'/><circle cx='73.4' cy='35.75' r='.75'/><circle cx='42.25' cy='4.6' r='.75'/><circle cx='42.25' cy='73.4' r='.75'/><circle cx='4.6' cy='42.25' r='.75'/><circle cx='73.4' cy='42.25' r='.75'/><circle cx='48.75' cy='4.6' r='.75'/><circle cx='48.75' cy='73.4' r='.75'/><circle cx='4.6' cy='48.75' r='.75'/><circle cx='73.4' cy='48.75' r='.75'/><circle cx='55.25' cy='4.6' r='.75'/><circle cx='55.25' cy='73.4' r='.75'/><circle cx='4.6' cy='55.25' r='.75'/><circle cx='73.4' cy='55.25' r='.75'/><circle cx='61.75' cy='4.6' r='.75'/><circle cx='61.75' cy='73.4' r='.75'/><circle cx='4.6' cy='61.75' r='.75'/><circle cx='73.4' cy='61.75' r='.75'/><circle cx='68.25' cy='4.6' r='.75'/><circle cx='68.25' cy='73.4' r='.75'/><circle cx='4.6' cy='68.25' r='.75'/><circle cx='73.4' cy='68.25' r='.75'/><circle cx='74.75' cy='4.6' r='.75'/><circle cx='74.75' cy='73.4' r='.75'/><circle cx='4.6' cy='74.75' r='.75'/><circle cx='73.4' cy='74.75' r='.75'/><circle cx='13' cy='13' r='1.5'/><circle cx='18.20' cy='13.00' r='1.15'/><circle cx='16.68' cy='16.68' r='1.15'/><circle cx='13.00' cy='18.20' r='1.15'/><circle cx='9.32' cy='16.68' r='1.15'/><circle cx='7.80' cy='13.00' r='1.15'/><circle cx='9.32' cy='9.32' r='1.15'/><circle cx='13.00' cy='7.80' r='1.15'/><circle cx='16.68' cy='9.32' r='1.15'/><circle cx='39' cy='13' r='1.5'/><circle cx='44.20' cy='13.00' r='1.15'/><circle cx='42.68' cy='16.68' r='1.15'/><circle cx='39.00' cy='18.20' r='1.15'/><circle cx='35.32' cy='16.68' r='1.15'/><circle cx='33.80' cy='13.00' r='1.15'/><circle cx='35.32' cy='9.32' r='1.15'/><circle cx='39.00' cy='7.80' r='1.15'/><circle cx='42.68' cy='9.32' r='1.15'/><circle cx='65' cy='13' r='1.5'/><circle cx='70.20' cy='13.00' r='1.15'/><circle cx='68.68' cy='16.68' r='1.15'/><circle cx='65.00' cy='18.20' r='1.15'/><circle cx='61.32' cy='16.68' r='1.15'/><circle cx='59.80' cy='13.00' r='1.15'/><circle cx='61.32' cy='9.32' r='1.15'/><circle cx='65.00' cy='7.80' r='1.15'/><circle cx='68.68' cy='9.32' r='1.15'/><circle cx='13' cy='39' r='1.5'/><circle cx='18.20' cy='39.00' r='1.15'/><circle cx='16.68' cy='42.68' r='1.15'/><circle cx='13.00' cy='44.20' r='1.15'/><circle cx='9.32' cy='42.68' r='1.15'/><circle cx='7.80' cy='39.00' r='1.15'/><circle cx='9.32' cy='35.32' r='1.15'/><circle cx='13.00' cy='33.80' r='1.15'/><circle cx='16.68' cy='35.32' r='1.15'/><circle cx='65' cy='39' r='1.5'/><circle cx='70.20' cy='39.00' r='1.15'/><circle cx='68.68' cy='42.68' r='1.15'/><circle cx='65.00' cy='44.20' r='1.15'/><circle cx='61.32' cy='42.68' r='1.15'/><circle cx='59.80' cy='39.00' r='1.15'/><circle cx='61.32' cy='35.32' r='1.15'/><circle cx='65.00' cy='33.80' r='1.15'/><circle cx='68.68' cy='35.32' r='1.15'/><circle cx='13' cy='65' r='1.5'/><circle cx='18.20' cy='65.00' r='1.15'/><circle cx='16.68' cy='68.68' r='1.15'/><circle cx='13.00' cy='70.20' r='1.15'/><circle cx='9.32' cy='68.68' r='1.15'/><circle cx='7.80' cy='65.00' r='1.15'/><circle cx='9.32' cy='61.32' r='1.15'/><circle cx='13.00' cy='59.80' r='1.15'/><circle cx='16.68' cy='61.32' r='1.15'/><circle cx='39' cy='65' r='1.5'/><circle cx='44.20' cy='65.00' r='1.15'/><circle cx='42.68' cy='68.68' r='1.15'/><circle cx='39.00' cy='70.20' r='1.15'/><circle cx='35.32' cy='68.68' r='1.15'/><circle cx='33.80' cy='65.00' r='1.15'/><circle cx='35.32' cy='61.32' r='1.15'/><circle cx='39.00' cy='59.80' r='1.15'/><circle cx='42.68' cy='61.32' r='1.15'/><circle cx='65' cy='65' r='1.5'/><circle cx='70.20' cy='65.00' r='1.15'/><circle cx='68.68' cy='68.68' r='1.15'/><circle cx='65.00' cy='70.20' r='1.15'/><circle cx='61.32' cy='68.68' r='1.15'/><circle cx='59.80' cy='65.00' r='1.15'/><circle cx='61.32' cy='61.32' r='1.15'/><circle cx='65.00' cy='59.80' r='1.15'/><circle cx='68.68' cy='61.32' r='1.15'/></g><g fill='none' stroke='%23F5AC99'><rect x='7.5' y='7.5' width='63' height='63' stroke-width='.55'/><rect x='22.5' y='22.5' width='33' height='33' stroke-width='.55'/><circle cx='13' cy='13' r='8.2' stroke-width='.9'/><circle cx='39' cy='13' r='8.2' stroke-width='.9'/><circle cx='65' cy='13' r='8.2' stroke-width='.9'/><circle cx='13' cy='39' r='8.2' stroke-width='.9'/><circle cx='65' cy='39' r='8.2' stroke-width='.9'/><circle cx='13' cy='65' r='8.2' stroke-width='.9'/><circle cx='39' cy='65' r='8.2' stroke-width='.9'/><circle cx='65' cy='65' r='8.2' stroke-width='.9'/></g></svg>") 26 round;
 }
 
 /* ============================================================
-   FLEURS — bouquet d'angle et touches légères
-   Posées en absolu par-dessus le napperon, sans interférer
-   avec le texte ni les clics.
+   BOUQUETS — photo détourée, posée sur l'angle des cartes
+   Toujours la même image : une seule requête, mise en cache,
+   réutilisée en miroir d'une section à l'autre.
    ============================================================ */
-.bouquet, .sprig{
+.bouquet{
+  --bq:clamp(112px,14vw,182px);
   position:absolute;
   pointer-events:none;
+  user-select:none;
   z-index:4;
+  width:var(--bq);
+  aspect-ratio:1;          /* l'image est carrée : évite tout saut de mise en page */
   height:auto;
 }
-.bouquet{ width:clamp(112px,16vw,186px); }
-.sprig{   width:clamp(66px,9vw,120px); opacity:.92; }
 
-/* bouquet principal : angle haut-droit de la page d'accueil */
-.bq-hero{ top:clamp(-56px,-6vw,-32px); right:clamp(-34px,-3.8vw,-18px); }
+/* Décalages exprimés en fraction du bouquet : il reste toujours
+   à cheval sur l'angle, quelle que soit la largeur d'écran. */
+.bq-hero{  top:calc(var(--bq) * -.52); right:calc(var(--bq) * -.22); }
+.bq-cd{    top:calc(var(--bq) * -.46); left:calc(var(--bq)  * -.22); transform:scaleX(-1); }
+.bq-lieux{ --bq:clamp(96px,11vw,148px); top:calc(var(--bq) * -.34); right:calc(var(--bq) * -.26); }
+.bq-form{  top:calc(var(--bq) * -.46); left:calc(var(--bq)  * -.22); transform:scaleX(-1); }
 
-/* touches discrètes dans le reste de la présentation */
-.sp-cd{     top:clamp(-26px,-3vw,-14px); left:clamp(-20px,-2.4vw,-10px); transform:scaleX(-1); }
-.sp-lieux{  bottom:clamp(-24px,-2.8vw,-12px); right:clamp(-18px,-2.2vw,-8px); }
-.sp-form{   top:clamp(-24px,-2.8vw,-12px); left:clamp(-18px,-2.2vw,-8px); transform:scaleX(-1); }
+/* conteneurs de référence pour le positionnement */
+#lieux .wrap{ position:relative; }
+
+/* En-tête posé directement sur le saumon : il faut assombrir,
+   le saumon foncé sur saumon ne fait que 2,8:1 de contraste. */
+.on-salmon .eyebrow{ color:var(--ink); }
+.on-salmon .ornament .rule{ stroke:var(--ink-soft); opacity:.5; }
+.on-salmon .ornament .bud{ fill:var(--ink-soft); }
+.on-salmon.travel-note{ color:var(--ink-soft); }
 
 @media (max-width:560px){
-  .sp-lieux, .sp-form{ display:none; }   /* on allège sur petit écran */
-  /* le bouquet ne doit pas venir sur « Save the Date » */
-  .bouquet{ width:88px; }
-  .bq-hero{ top:-42px; right:-16px; }
-  .hero .hero-inner{ padding-top:64px; }   /* .hero pour passer devant la règle de base */
+  .bq-lieux, .bq-form{ display:none; }   /* on allège sur petit écran */
+  /* le bouquet reste, mais plus petit, et le titre descend sous lui */
+  .bouquet{ --bq:104px; }
+  .hero .hero-inner{ padding-top:76px; }   /* .hero pour passer devant la règle de base */
 }
 
 /* ============================================================
@@ -164,7 +174,7 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
 .hero-inner{
   position:relative; z-index:2;
   max-width:760px; width:100%;
-  padding:clamp(26px,5.5vw,58px) clamp(18px,4vw,44px);
+  padding:clamp(52px,7.4vw,96px) clamp(18px,4vw,44px) clamp(26px,5.5vw,58px);
 }
 
 .hero .script-top{
@@ -332,15 +342,10 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 }
 .venue{
   position:relative;
-  background:var(--paper);
-  border:1px solid rgba(194,116,92,.28);
-  padding:clamp(30px,5vw,52px) clamp(22px,4vw,42px);
+  padding:clamp(18px,3vw,30px) clamp(8px,1.6vw,18px);
   text-align:center;
 }
 /* coins dorés façon cadre */
-.venue .corner{ position:absolute; width:24px; height:24px; stroke:var(--gold); fill:none; stroke-width:1; opacity:.65; }
-.venue .corner.tl{ top:9px; left:9px; }
-.venue .corner.br{ bottom:9px; right:9px; transform:rotate(180deg); }
 
 .venue .tag{
   font-size:.6rem; letter-spacing:.34em; text-transform:uppercase;
@@ -503,87 +508,6 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 </head>
 <body>
 
-<!-- ══════════ FLEURS ══════════
-     Callas, lys et feuillage dessinés en SVG et définis une seule
-     fois ; les « use » plus bas les réemploient à différentes
-     tailles. Tons blanc, crème et vert sauge, comme l'inspiration. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-<defs>
-  <!-- calla : spathe en cornet, gorge plus sourde, spadice crème -->
-  <g id="p-calla">
-    <path d="M0 0C-9-8-12-21-6-30-2-37 6-40 13-37 10-30 7-23 6-15 5-7 3-3 0 0Z"
-          fill="#fff" stroke="#CDCABB" stroke-width=".8" stroke-linejoin="round"/>
-    <path d="M1-3C-3-9-5-19-2-26 1-32 6-34 10-33 8-27 6-20 5-13 4-7 3-5 1-3Z" fill="#F2F0E7"/>
-    <ellipse cx="4" cy="-20" rx="1.7" ry="6.6" fill="#D9CE88" transform="rotate(-10 4 -20)"/>
-    <path d="M0 0C1 7 1 14 1 21" fill="none" stroke="#9FAC92" stroke-width="1.5"/>
-  </g>
-
-  <!-- lys ouvert : six pétales + étamines -->
-  <g id="p-lily">
-    <g fill="#fff" stroke="#CDCABB" stroke-width=".7">
-      <path d="M0 0C-5-10-5-22 0-29 5-22 5-10 0 0Z"/>
-      <path d="M0 0C-5-10-5-22 0-29 5-22 5-10 0 0Z" transform="rotate(60)"/>
-      <path d="M0 0C-5-10-5-22 0-29 5-22 5-10 0 0Z" transform="rotate(120)"/>
-      <path d="M0 0C-5-10-5-22 0-29 5-22 5-10 0 0Z" transform="rotate(180)"/>
-      <path d="M0 0C-5-10-5-22 0-29 5-22 5-10 0 0Z" transform="rotate(240)"/>
-      <path d="M0 0C-5-10-5-22 0-29 5-22 5-10 0 0Z" transform="rotate(300)"/>
-    </g>
-    <path d="M0 0-4-8M0 0 4-8M0 0 0-10M0 0-7-3M0 0 7-3" fill="none" stroke="#C6BD96" stroke-width=".7"/>
-    <g fill="#CDBB76">
-      <circle cx="-4" cy="-8.5" r="1.1"/><circle cx="4" cy="-8.5" r="1.1"/><circle cx="0" cy="-10.6" r="1.1"/>
-      <circle cx="-7.3" cy="-3.3" r="1.1"/><circle cx="7.3" cy="-3.3" r="1.1"/>
-    </g>
-  </g>
-
-  <!-- fleurette à cinq pétales -->
-  <g id="p-bloss">
-    <g fill="#fff" stroke="#D3D0C2" stroke-width=".5">
-      <ellipse cx="0" cy="-3.4" rx="2.3" ry="3.4"/>
-      <ellipse cx="0" cy="-3.4" rx="2.3" ry="3.4" transform="rotate(72)"/>
-      <ellipse cx="0" cy="-3.4" rx="2.3" ry="3.4" transform="rotate(144)"/>
-      <ellipse cx="0" cy="-3.4" rx="2.3" ry="3.4" transform="rotate(216)"/>
-      <ellipse cx="0" cy="-3.4" rx="2.3" ry="3.4" transform="rotate(288)"/>
-    </g>
-    <circle r="1.2" fill="#D9CE88"/>
-  </g>
-
-  <!-- feuille -->
-  <path id="p-leaf" d="M0 0C9-7 23-9 33-5 23 2 9 5 0 0Z" fill="#A7AE9E"/>
-
-  <!-- brin retombant façon amarante -->
-  <g id="p-trail">
-    <path d="M0 0C5 11 3 25-3 36c-5 9-7 15-6 22" fill="none" stroke="#AFB9A3" stroke-width="1.1"/>
-    <g fill="#F1F1E8" stroke="#D5D8C9" stroke-width=".4">
-      <circle cx="2" cy="7" r="1.5"/><circle cx="4" cy="15" r="1.6"/><circle cx="2" cy="23" r="1.5"/>
-      <circle cx="-2" cy="31" r="1.4"/><circle cx="-5" cy="39" r="1.3"/><circle cx="-7" cy="47" r="1.2"/>
-    </g>
-  </g>
-
-  <!-- ░░ bouquet d'angle ░░ -->
-  <g id="bq">
-    <use href="#p-leaf"  transform="translate(124 92) rotate(152) scale(1.1)" opacity=".85"/>
-    <use href="#p-leaf"  transform="translate(133 84) rotate(-42) scale(.9)"  opacity=".8"/>
-    <use href="#p-leaf"  transform="translate(126 97) rotate(200) scale(.85)" opacity=".7"/>
-    <use href="#p-trail" transform="translate(131 98) rotate(12)"/>
-    <use href="#p-calla" transform="translate(116 102) rotate(-24) scale(1.15)"/>
-    <use href="#p-calla" transform="translate(149 94) rotate(30) scale(.9)"/>
-    <use href="#p-lily"  transform="translate(133 68)"/>
-    <use href="#p-bloss" transform="translate(110 76)"/>
-    <use href="#p-bloss" transform="translate(150 60) scale(.9)"/>
-    <use href="#p-bloss" transform="translate(157 97) scale(.85)"/>
-  </g>
-
-  <!-- ░░ touche légère ░░ -->
-  <g id="sprig">
-    <use href="#p-leaf"  transform="translate(52 60) rotate(158) scale(.8)" opacity=".8"/>
-    <use href="#p-leaf"  transform="translate(59 54) rotate(-34) scale(.65)" opacity=".75"/>
-    <use href="#p-trail" transform="translate(57 63) rotate(10) scale(.65)" opacity=".85"/>
-    <use href="#p-calla" transform="translate(51 66) rotate(-20) scale(.82)"/>
-    <use href="#p-bloss" transform="translate(66 46) scale(.85)"/>
-    <use href="#p-bloss" transform="translate(45 46) scale(.65)"/>
-  </g>
-</defs>
-</svg>
 
 <!-- ══════════ SÉLECTEUR DE LANGUE ══════════ -->
 <div class="lang" role="group" aria-label="Langue / Idioma">
@@ -595,7 +519,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <!-- ══════════ HERO ══════════ -->
 <header class="hero">
   <div class="hero-inner lace-card">
-    <svg class="bouquet bq-hero" viewBox="87 37 91 121" aria-hidden="true"><use href="#bq"/></svg>
+    <img class="bouquet bq-hero" src="bouquet.png" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
     <p class="script-top" data-i18n="saveTheDate">Save the Date</p>
     <h1 class="names">
       <span id="name1">Eva</span>
@@ -624,7 +548,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <section class="countdown-section" id="compte-a-rebours">
   <div class="wrap">
     <div class="lace-card cd-card reveal">
-      <svg class="sprig sp-cd" viewBox="25 31 55 72" aria-hidden="true"><use href="#sprig"/></svg>
+      <img class="bouquet bq-cd" src="bouquet.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="section-head">
         <p class="eyebrow" data-i18n="cdEyebrow">Plus que</p>
       </div>
@@ -645,9 +569,8 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <!-- ══════════ LIEUX ══════════ -->
 <section id="lieux">
   <div class="wrap">
-   <div class="lace-card section-card reveal">
-    <svg class="sprig sp-lieux" viewBox="25 31 55 72" aria-hidden="true"><use href="#sprig"/></svg>
-    <div class="section-head">
+    <img class="bouquet bq-lieux" src="bouquet.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <div class="section-head on-salmon reveal">
       <p class="eyebrow" data-i18n="venuesEyebrow">Le jour J</p>
       <h2 data-i18n="venuesTitle">Le déroulé de la journée</h2>
       <svg class="ornament" viewBox="0 0 260 26" aria-hidden="true">
@@ -661,8 +584,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
       </svg>
     </div>
     <ol class="venues" id="venues"></ol>
-    <p class="travel-note" id="travelNote" hidden></p>
-   </div>
+    <p class="travel-note on-salmon" id="travelNote" hidden></p>
   </div>
 </section>
 
@@ -670,7 +592,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <section class="rsvp" id="adresse">
   <div class="wrap">
    <div class="lace-card section-card reveal">
-    <svg class="sprig sp-form" viewBox="25 31 55 72" aria-hidden="true"><use href="#sprig"/></svg>
+    <img class="bouquet bq-form" src="bouquet.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
     <div class="section-head">
       <p class="eyebrow" data-i18n="formEyebrow">Une dernière chose</p>
       <h2 data-i18n="formTitle">Laissez-nous votre adresse</h2>
@@ -907,7 +829,6 @@ function applyContent() {
 
 /* --- Les étapes de la journée, construites depuis CONFIG.steps --- */
 const ROMAN  = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-const CORNER = '<path d="M23 1H6C3.2 1 1 3.2 1 6v17"/><path d="M19 1v2M1 19h2"/>';
 let stepsRendered = false;
 
 function renderSteps() {
@@ -916,10 +837,7 @@ function renderSteps() {
 
   CONFIG.steps.forEach((s, i) => {
     const li = document.createElement('li');
-    li.className = 'venue reveal' + (stepsRendered ? ' in' : '');
-    li.innerHTML =
-      '<svg class="corner tl" viewBox="0 0 24 24" aria-hidden="true">' + CORNER + '</svg>' +
-      '<svg class="corner br" viewBox="0 0 24 24" aria-hidden="true">' + CORNER + '</svg>';
+    li.className = 'venue lace-card reveal' + (stepsRendered ? ' in' : '');
 
     const el = (tag, cls, txt) => {
       const n = document.createElement(tag);
