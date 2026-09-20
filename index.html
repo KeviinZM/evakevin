@@ -98,6 +98,21 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
 .ornament .bud{ fill:var(--salmon-deep); }
 
 /* ============================================================
+   CARTE DENTELLE
+   Cadre blanc dont le bord porte un motif de dentelle :
+   double filet, festons et œillets, rosace dans chaque angle.
+   Le motif est un SVG découpé en 9 (border-image) : les angles
+   gardent leur taille, les bords se répètent autant que besoin.
+   ============================================================ */
+.lace-card{
+  background:#fff;
+  /* 30px pile = taille native du motif : aucun redimensionnement,
+     donc aucune rupture de trait aux jonctions des angles */
+  border:30px solid transparent;
+  border-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><g fill='none' stroke='%23C2745C' stroke-linecap='round'><rect x='4.5' y='4.5' width='111' height='111' stroke-width='1.3'/><rect x='9.5' y='9.5' width='101' height='101' stroke-width='.55'/><path d='M30 18 Q40 27 50 18 Q60 27 70 18 Q80 27 90 18' stroke-width='.9'/><path d='M30 102 Q40 93 50 102 Q60 93 70 102 Q80 93 90 102' stroke-width='.9'/><path d='M18 30 Q27 40 18 50 Q27 60 18 70 Q27 80 18 90' stroke-width='.9'/><path d='M102 30 Q93 40 102 50 Q93 60 102 70 Q93 80 102 90' stroke-width='.9'/><g stroke-width='.8'><circle cx='17' cy='17' r='3.4'/><circle cx='103' cy='17' r='3.4'/><circle cx='17' cy='103' r='3.4'/><circle cx='103' cy='103' r='3.4'/><path d='M17 11.5v11M11.5 17h11M103 11.5v11M97.5 17h11M17 97.5v11M11.5 103h11M103 97.5v11M97.5 103h11'/></g></g><g fill='%23C2745C'><circle cx='30' cy='18' r='1.5'/><circle cx='50' cy='18' r='1.5'/><circle cx='70' cy='18' r='1.5'/><circle cx='30' cy='102' r='1.5'/><circle cx='50' cy='102' r='1.5'/><circle cx='70' cy='102' r='1.5'/><circle cx='18' cy='30' r='1.5'/><circle cx='18' cy='50' r='1.5'/><circle cx='18' cy='70' r='1.5'/><circle cx='102' cy='30' r='1.5'/><circle cx='102' cy='50' r='1.5'/><circle cx='102' cy='70' r='1.5'/><circle cx='17' cy='17' r='1.2'/><circle cx='103' cy='17' r='1.2'/><circle cx='17' cy='103' r='1.2'/><circle cx='103' cy='103' r='1.2'/></g></svg>") 30 round;
+}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero{
@@ -109,25 +124,13 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
   padding-bottom:clamp(104px,16vh,150px);
   position:relative;
   text-align:center;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 42%, #FFFDFA 0%, var(--cream) 56%, #FBE2D7 100%);
+  background:var(--salmon);   /* aplat, aucun dégradé */
 }
-/* double filet doré façon cadre ancien */
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:clamp(14px,2.4vw,30px);
-  border:1px solid rgba(194,116,92,.42);
-  pointer-events:none;
+.hero-inner{
+  position:relative; z-index:2;
+  max-width:760px; width:100%;
+  padding:clamp(26px,5.5vw,58px) clamp(18px,4vw,44px);
 }
-.hero::after{
-  content:'';
-  position:absolute;
-  inset:calc(clamp(14px,2.4vw,30px) + 7px);
-  border:1px solid rgba(168,135,92,.16);
-  pointer-events:none;
-}
-.hero-inner{ position:relative; z-index:2; max-width:760px; width:100%; }
 
 .hero .script-top{
   font-family:var(--script);
@@ -174,11 +177,11 @@ h1,h2,h3{ font-family:var(--serif); font-weight:300; margin:0; letter-spacing:.0
   z-index:3;
   display:flex; flex-direction:column; align-items:center; gap:10px;
   font-size:.58rem; letter-spacing:.32em; text-transform:uppercase;
-  color:var(--salmon-ink); text-decoration:none;
+  color:var(--ink); text-decoration:none;
 }
 .scroll-cue .line{
   width:1px; height:44px;
-  background:linear-gradient(to bottom, var(--salmon-deep), transparent);
+  background:var(--ink);   /* aplat, aucun dégradé */
   animation:cue 2.6s ease-in-out infinite;
 }
 @keyframes cue{ 0%,100%{ transform:scaleY(.45); transform-origin:top; opacity:.5 } 50%{ transform:scaleY(1); transform-origin:top; opacity:1 } }
@@ -207,13 +210,15 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 /* ============================================================
    COMPTE À REBOURS
    ============================================================ */
-.countdown-section{ background:var(--blush); position:relative; }
-.countdown-section::before,
-.countdown-section::after{
-  content:''; position:absolute; left:var(--gutter); right:var(--gutter); height:1px;
-  background:linear-gradient(to right, transparent, rgba(194,116,92,.38), transparent);
+/* Aplat de saumon : les filets de séparation n'ont plus lieu d'être,
+   la couleur pleine marque déjà la limite de la section. */
+.countdown-section{ background:var(--salmon); position:relative; }
+
+.cd-card{
+  max-width:760px; margin:0 auto;
+  padding:clamp(26px,5.5vw,56px) clamp(18px,4vw,44px);
 }
-.countdown-section::before{ top:0 } .countdown-section::after{ bottom:0 }
+.cd-card .section-head{ margin-bottom:clamp(26px,4vw,40px); }
 
 /* « Avant de nous dire oui » passe sous les chiffres */
 .cd-outro{ margin:clamp(34px,5vw,56px) 0 0; }
@@ -321,7 +326,7 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 .map-link{
   display:inline-block;
   font-size:.64rem; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--salmon-ink); text-decoration:none;
+  color:var(--ink); text-decoration:none;
   border-bottom:1px solid rgba(194,116,92,.5);
   padding-bottom:5px;
   transition:color .3s, border-color .3s;
@@ -334,7 +339,7 @@ section{ padding:clamp(72px,11vw,140px) var(--gutter); }
 .rsvp{ background:var(--blush); position:relative; }
 .rsvp::before{
   content:''; position:absolute; top:0; left:var(--gutter); right:var(--gutter); height:1px;
-  background:linear-gradient(to right, transparent, rgba(194,116,92,.38), transparent);
+  background:rgba(194,116,92,.3);   /* aplat, aucun dégradé */
 }
 .form-card{
   background:var(--paper);
@@ -471,7 +476,7 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 
 <!-- ══════════ HERO ══════════ -->
 <header class="hero">
-  <div class="hero-inner">
+  <div class="hero-inner lace-card">
     <p class="script-top" data-i18n="saveTheDate">Save the Date</p>
     <h1 class="names">
       <span id="name1">Eva</span>
@@ -499,19 +504,21 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
 <!-- ══════════ COMPTE À REBOURS ══════════ -->
 <section class="countdown-section" id="compte-a-rebours">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow" data-i18n="cdEyebrow">Plus que</p>
+    <div class="lace-card cd-card reveal">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="cdEyebrow">Plus que</p>
+      </div>
+      <div class="countdown" id="countdown" role="timer" aria-live="off">
+        <div class="cd-cell"><span class="cd-num" id="cdD">—</span><span class="cd-lab" data-i18n="days">Jours</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cdH">—</span><span class="cd-lab" data-i18n="hours">Heures</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cdM">—</span><span class="cd-lab" data-i18n="minutes">Minutes</span></div>
+        <div class="cd-cell"><span class="cd-num" id="cdS">—</span><span class="cd-lab" data-i18n="seconds">Secondes</span></div>
+      </div>
+      <div class="section-head cd-outro">
+        <h2 data-i18n="cdTitle">Avant de nous dire oui</h2>
+      </div>
+      <div class="cd-done" id="cdDone" hidden data-i18n="cdDone">C'est aujourd'hui</div>
     </div>
-    <div class="countdown reveal" id="countdown" role="timer" aria-live="off">
-      <div class="cd-cell"><span class="cd-num" id="cdD">—</span><span class="cd-lab" data-i18n="days">Jours</span></div>
-      <div class="cd-cell"><span class="cd-num" id="cdH">—</span><span class="cd-lab" data-i18n="hours">Heures</span></div>
-      <div class="cd-cell"><span class="cd-num" id="cdM">—</span><span class="cd-lab" data-i18n="minutes">Minutes</span></div>
-      <div class="cd-cell"><span class="cd-num" id="cdS">—</span><span class="cd-lab" data-i18n="seconds">Secondes</span></div>
-    </div>
-    <div class="section-head cd-outro reveal">
-      <h2 data-i18n="cdTitle">Avant de nous dire oui</h2>
-    </div>
-    <div class="cd-done" id="cdDone" hidden data-i18n="cdDone">C'est aujourd'hui</div>
   </div>
 </section>
 
