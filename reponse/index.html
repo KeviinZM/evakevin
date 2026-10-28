@@ -697,7 +697,11 @@ const CONFIG = {
      Une ligne par adresse. Seul « nom » est obligatoire.
      ex. { nom: 'Hôtel du Parc', lien: 'https://…', infos: { fr: '5 min en voiture · ~90 €', es: '5 min en coche · ~90 €' } } */
   hotels: {
-    recommandes: [],
+    recommandes: [
+      { nom: 'Hôtel de l’Ours',
+        lien: 'https://secure.reservit.com/fo/booking/2/670/dates?specialMode=default&langcode=FR&custid=2&hotelid=670&m=booking',
+        infos: { fr: 'Centre de Coulommiers · réservation en direct', es: 'Centro de Coulommiers · reserva directa' } }
+    ],
     aEviter:     [
       { nom: 'Première Classe Coulommiers' }
     ]
