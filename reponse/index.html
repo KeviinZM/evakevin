@@ -401,6 +401,7 @@ section + section{ padding-top:0; }
 .stay-name a{ color:inherit; text-decoration:none; border-bottom:1px solid rgba(194,116,92,.4); }
 .stay-name a:hover{ color:var(--salmon-ink); }
 .stay-meta{ display:block; font-size:.74rem; letter-spacing:.04em; color:var(--ink-soft); margin-top:.2em; }
+.stay-meta a{ color:var(--salmon-ink); text-decoration:none; letter-spacing:.08em; }
 .stay-empty{ font-family:var(--serif); font-style:italic; color:var(--ink-soft); padding:1em 0; margin:0; }
 
 /* ============================================================
@@ -700,7 +701,12 @@ const CONFIG = {
     recommandes: [
       { nom: 'Hôtel de l’Ours',
         lien: 'https://secure.reservit.com/fo/booking/2/670/dates?specialMode=default&langcode=FR&custid=2&hotelid=670&m=booking',
-        infos: { fr: 'Centre de Coulommiers · réservation en direct', es: 'Centro de Coulommiers · reserva directa' } }
+        infos: { fr: 'Centre de Coulommiers · réservation en direct', es: 'Centro de Coulommiers · reserva directa' } },
+      { nom: 'La Petite Briarde',
+        lien: 'https://www.coulommierspaysdebrie-tourisme.fr/pratiques/offres-touristiques/6331433-petite-briarde-chambres-hotes/',
+        infos: { fr: 'Chambres d’hôtes avec piscine · Boissy-le-Châtel · réservation par téléphone',
+                 es: 'Casa rural con piscina · Boissy-le-Châtel · reserva por teléfono' },
+        tel: '06 88 74 34 06' }
     ],
     aEviter:     [
       { nom: 'Première Classe Coulommiers' }
@@ -852,6 +858,15 @@ function renderHotels() {
         const m = document.createElement('span');
         m.className = 'stay-meta';
         m.textContent = infos;
+        li.append(m);
+      }
+      if (h.tel) {
+        const m = document.createElement('span');
+        m.className = 'stay-meta';
+        const a = document.createElement('a');
+        a.href = 'tel:+33' + h.tel.replace(/\D/g, '').replace(/^0/, '');
+        a.textContent = h.tel;
+        m.append(a);
         li.append(m);
       }
       ul.append(li);
