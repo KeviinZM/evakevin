@@ -265,7 +265,7 @@ section + section{ padding-top:0; }
   margin:clamp(14px,2.4vw,26px) 0 0;
   padding-top:clamp(14px,2.4vw,26px);
   border-top:1px solid rgba(194,116,92,.28);
-  font-size:.58rem; letter-spacing:.3em; text-transform:uppercase;
+  font-size:.7rem; letter-spacing:.28em; text-transform:uppercase;
   color:var(--salmon-ink);
 }
 .grid > .field-group:first-child{ margin-top:0; padding-top:0; border-top:0; }
@@ -275,21 +275,22 @@ section + section{ padding-top:0; }
   grid-column:1/-1;
   margin:-.4em 0 0;
   font-family:var(--serif); font-style:italic;
-  font-size:1rem; line-height:1.7;
-  color:var(--ink-soft);
+  font-size:1.12rem; line-height:1.7;
+  color:var(--ink);
 }
 
 .field > label, .field > .label{
   display:block;
-  font-size:.58rem; letter-spacing:.24em; text-transform:uppercase;
-  color:var(--ink-soft);
+  font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink);
+  font-weight:400;
   margin-bottom:.85em;
 }
 .field .req{ color:var(--salmon-ink); }
 .field input,.field select,.field textarea{
   width:100%;
   font-family:var(--serif);
-  font-size:1.06rem;
+  font-size:1.18rem;
   font-weight:400;
   color:var(--ink);
   background:transparent;
@@ -309,11 +310,11 @@ section + section{ padding-top:0; }
 .field input:focus,.field select:focus,.field textarea:focus{
   outline:none; border-bottom-color:var(--salmon-ink); border-bottom-width:1.5px;
 }
-.field input::placeholder,.field textarea::placeholder{ color:#C6BBAE; font-style:italic; }
+.field input::placeholder,.field textarea::placeholder{ color:#8C8178; font-style:italic; }
 .field.invalid input,.field.invalid select,.field.invalid textarea{ border-bottom-color:#C0553F; }
 .field .err{
   display:none;
-  font-size:.66rem; letter-spacing:.06em; color:#C0553F; margin-top:.5em;
+  font-size:.78rem; letter-spacing:.04em; color:#C0553F; margin-top:.5em;
 }
 .field.invalid .err{ display:block; }
 
@@ -329,7 +330,7 @@ section + section{ padding-top:0; }
 .choice span{
   display:block;
   font-family:var(--serif);
-  font-size:1.04rem;
+  font-size:1.16rem;
   color:var(--ink);
   border:1px solid rgba(194,116,92,.38);
   padding:.55em 1.15em;
@@ -340,7 +341,7 @@ section + section{ padding-top:0; }
 }
 .choices.big .choice span{
   padding:1.05em 1em;
-  font-size:clamp(1.08rem,2.8vw,1.22rem);
+  font-size:clamp(1.18rem,3vw,1.34rem);
   font-style:italic;
 }
 .choice span:hover{ border-color:var(--salmon-deep); background:var(--blush); }
@@ -354,7 +355,7 @@ section + section{ padding-top:0; }
 .form-actions[hidden]{ display:none; }
 .btn{
   font-family:var(--sans); font-weight:300;
-  font-size:.68rem; letter-spacing:.3em; text-transform:uppercase;
+  font-size:.76rem; letter-spacing:.28em; text-transform:uppercase;
   color:var(--salmon-ink);
   background:transparent;
   border:1px solid var(--salmon-deep);
@@ -368,7 +369,7 @@ section + section{ padding-top:0; }
 .thanks{ display:none; text-align:center; padding:clamp(14px,3vw,28px) 0; }
 .thanks.on{ display:block; animation:fade .9s ease both; }
 .thanks .script{ font-size:clamp(2rem,7vw,3.2rem); line-height:1.2; display:block; margin-bottom:.35em; }
-.thanks p{ color:var(--ink-soft); max-width:440px; margin:1.4em auto 0; font-family:var(--serif); font-size:1.08rem; }
+.thanks p{ color:var(--ink); max-width:440px; margin:1.4em auto 0; font-family:var(--serif); font-size:1.18rem; }
 
 .form-error{
   display:none; margin-top:1.8em;
