@@ -405,6 +405,7 @@ section + section{ padding-top:0; }
 .stay-name{ font-family:var(--serif); font-size:1.32rem; color:var(--ink); }
 .stay-name a{ color:inherit; text-decoration:none; border-bottom:1px solid rgba(194,116,92,.4); }
 .stay-name a:hover{ color:var(--salmon-ink); }
+.stay-km{ color:var(--ink); font-size:.9em; }
 .stay-meta{ display:block; font-size:.88rem; letter-spacing:.03em; color:var(--ink); margin-top:.25em; }
 .stay-meta a{ color:var(--salmon-ink); text-decoration:none; letter-spacing:.08em; }
 .stay-intro.stay-note{ font-size:clamp(1rem,2.4vw,1.12rem); margin-top:calc(-1 * clamp(18px,3vw,30px)); }
@@ -720,33 +721,34 @@ const CONFIG = {
 
   /* ═══ HÉBERGEMENT ══════════════════════════════════════════
      Une ligne par adresse. Seul « nom » est obligatoire.
-     ex. { nom: 'Hôtel du Parc', lien: 'https://…', infos: { fr: '5 min en voiture · ~90 €', es: '5 min en coche · ~90 €' } } */
+     km = distance en voiture jusqu'au lieu (3 rue de Pontmoulin, Coulommiers).
+     ex. { nom: 'Hôtel du Parc', km: '3', lien: 'https://…', infos: { fr: '5 min en voiture · ~90 €', es: '5 min en coche · ~90 €' } } */
   hotels: {
     /* Recherches toutes faites pour la nuit du 5 au 6 juin 2027, 2 adultes.
        Sur téléphone, ces liens ouvrent directement l'appli Airbnb / Booking. */
     airbnb:  'https://www.airbnb.fr/s/Coulommiers/homes?place_id=ChIJP-dhscqw6EcRLOo14H1URcc&checkin=2027-06-05&checkout=2027-06-06&adults=2',
     booking: 'https://www.booking.com/searchresults.fr.html?ss=Coulommiers&dest_id=-1422107&dest_type=city&checkin=2027-06-05&checkout=2027-06-06&group_adults=2&no_rooms=1&group_children=0',
     recommandes: [
-      { nom: 'Hôtel de l’Ours',
+      { nom: 'Hôtel de l’Ours', km: '2',
         lien: 'https://secure.reservit.com/fo/booking/2/670/dates?specialMode=default&langcode=FR&custid=2&hotelid=670&m=booking',
         infos: { fr: 'Centre de Coulommiers · réservation en direct', es: 'Centro de Coulommiers · reserva directa' } },
-      { nom: 'La Petite Briarde',
+      { nom: 'La Petite Briarde', km: '1,3',
         lien: 'https://www.coulommierspaysdebrie-tourisme.fr/pratiques/offres-touristiques/6331433-petite-briarde-chambres-hotes/',
         infos: { fr: 'Chambres d’hôtes avec piscine · Boissy-le-Châtel · réservation par téléphone',
                  es: 'Casa rural con piscina · Boissy-le-Châtel · reserva por teléfono' },
         tel: '06 88 74 34 06' },
       /* Pas de site officiel : le lien lance la recherche Booking du logement (nuit du 5 juin) */
-      { nom: 'Les 9 Portes',
+      { nom: 'Les 9 Portes', km: '2,2',
         lien: 'https://www.booking.com/searchresults.fr.html?ss=Les+9+Portes+Coulommiers&checkin=2027-06-05&checkout=2027-06-06&group_adults=2&no_rooms=1&group_children=0',
         infos: { fr: 'Appartements avec cuisine et sauna · centre de Coulommiers',
                  es: 'Apartamentos con cocina y sauna · centro de Coulommiers' } },
-      { nom: 'Country House Reem',
+      { nom: 'Country House Reem', km: '~8',
         lien: 'https://www.booking.com/searchresults.fr.html?ss=Country+House+Reem+Pommeuse&checkin=2027-06-05&checkout=2027-06-06&group_adults=2&no_rooms=1&group_children=0',
         infos: { fr: 'Maison d’hôtes simple et économique · Pommeuse',
                  es: 'Casa de huéspedes sencilla y económica · Pommeuse' } }
     ],
     aEviter:     [
-      { nom: 'Première Classe Coulommiers' }
+      { nom: 'Première Classe Coulommiers', km: '4,9' }
     ]
   }
 };
@@ -896,6 +898,12 @@ function renderHotels() {
         name.append(a);
       } else {
         name.textContent = h.nom;
+      }
+      if (h.km) {
+        const k = document.createElement('span');
+        k.className = 'stay-km';
+        k.textContent = '\u00a0(' + h.km + '\u00a0km)';
+        name.append(k);
       }
       li.append(name);
       const infos = h.infos && (h.infos[LANG] || h.infos.fr);
