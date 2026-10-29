@@ -407,6 +407,17 @@ section + section{ padding-top:0; }
 .stay-name a:hover{ color:var(--salmon-ink); }
 .stay-meta{ display:block; font-size:.88rem; letter-spacing:.03em; color:var(--ink); margin-top:.25em; }
 .stay-meta a{ color:var(--salmon-ink); text-decoration:none; letter-spacing:.08em; }
+.stay-intro.stay-note{ font-size:clamp(1rem,2.4vw,1.12rem); margin-top:calc(-1 * clamp(18px,3vw,30px)); }
+.stay-search{
+  margin-top:clamp(36px,5vw,56px);
+  padding-top:clamp(28px,4vw,44px);
+  border-top:1px solid rgba(194,116,92,.28);
+  text-align:center;
+}
+.stay-search-lede{ font-family:var(--serif); font-size:clamp(1.08rem,2.6vw,1.2rem); color:var(--ink); margin:0 0 1.4em; }
+.stay-btns{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+.stay-btns .btn{ text-decoration:none; display:inline-block; min-width:220px; text-align:center; }
+@media (max-width:480px){ .stay-btns .btn{ width:100%; } }
 .stay-empty{ font-family:var(--serif); font-style:italic; font-size:1.12rem; color:var(--ink); padding:1em 0; margin:0; }
 
 /* ============================================================
@@ -636,7 +647,8 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
       <p class="eyebrow" data-i18n="stayEyebrow">Pour la nuit</p>
       <h2 data-i18n="stayTitle">Où dormir ?</h2>
     </div>
-    <p class="stay-intro" data-i18n="stayIntro">Les invités logés sur le domaine seront prévenus personnellement. Pour les autres, voici nos adresses aux alentours — et celles que nous vous déconseillons.</p>
+    <p class="stay-intro" data-i18n="stayIntro">Nous vous conseillons de prendre vos dispositions assez rapidement pour réserver votre hébergement.</p>
+    <p class="stay-intro stay-note" data-i18n="stayNote">Certains hôtels n'ont pas encore ouvert les réservations pour le 5 juin : n'hésitez pas à les appeler directement pour réserver ou connaître leurs prix.</p>
     <div class="stay-cols">
       <div class="stay-col">
         <h3 data-i18n="stayGood">Nos recommandations</h3>
@@ -645,6 +657,13 @@ footer .sig{ font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; co
       <div class="stay-col avoid">
         <h3 data-i18n="stayBad">À éviter</h3>
         <ul class="stay-list" id="stayBad"></ul>
+      </div>
+    </div>
+    <div class="stay-search">
+      <p class="stay-search-lede" data-i18n="staySearch">Ou faites votre choix parmi tous les logements aux alentours :</p>
+      <div class="stay-btns">
+        <a class="btn" id="lnkAirbnb" target="_blank" rel="noopener" data-i18n="stayAirbnb">Voir les Airbnb</a>
+        <a class="btn" id="lnkBooking" target="_blank" rel="noopener" data-i18n="stayBooking">Voir sur Booking</a>
       </div>
     </div>
    </div>
@@ -703,6 +722,10 @@ const CONFIG = {
      Une ligne par adresse. Seul « nom » est obligatoire.
      ex. { nom: 'Hôtel du Parc', lien: 'https://…', infos: { fr: '5 min en voiture · ~90 €', es: '5 min en coche · ~90 €' } } */
   hotels: {
+    /* Recherches toutes faites pour la nuit du 5 au 6 juin 2027, 2 adultes.
+       Sur téléphone, ces liens ouvrent directement l'appli Airbnb / Booking. */
+    airbnb:  'https://www.airbnb.fr/s/Coulommiers/homes?place_id=ChIJP-dhscqw6EcRLOo14H1URcc&checkin=2027-06-05&checkout=2027-06-06&adults=2',
+    booking: 'https://www.booking.com/searchresults.fr.html?ss=Coulommiers&dest_id=-1422107&dest_type=city&checkin=2027-06-05&checkout=2027-06-06&group_adults=2&no_rooms=1&group_children=0',
     recommandes: [
       { nom: 'Hôtel de l’Ours',
         lien: 'https://secure.reservit.com/fo/booking/2/670/dates?specialMode=default&langcode=FR&custid=2&hotelid=670&m=booking',
@@ -768,7 +791,11 @@ const I18N = {
     thanksAgain:    'Vous nous avez déjà répondu{date}. Inutile de remplir le formulaire une seconde fois. Un changement ? Contactez-nous directement.',
     stayEyebrow:  'Pour la nuit',
     stayTitle:    'Où dormir ?',
-    stayIntro:    'Les invités logés sur le domaine seront prévenus personnellement. Pour les autres, voici nos adresses aux alentours — et celles que nous vous déconseillons.',
+    stayIntro:    'Nous vous conseillons de prendre vos dispositions assez rapidement pour réserver votre hébergement.',
+    stayNote:     'Certains hôtels n’ont pas encore ouvert les réservations pour le 5 juin : n’hésitez pas à les appeler directement pour réserver ou connaître leurs prix.',
+    staySearch:   'Ou faites votre choix parmi tous les logements aux alentours :',
+    stayAirbnb:   'Voir les Airbnb',
+    stayBooking:  'Voir sur Booking',
     stayGood:     'Nos recommandations',
     stayBad:      'À éviter',
     staySoon:     'La liste arrive très bientôt.'
@@ -818,7 +845,11 @@ const I18N = {
     thanksAgain:    'Ya nos respondiste{date}. No hace falta rellenar el formulario otra vez. ¿Algún cambio? Contáctanos directamente.',
     stayEyebrow:  'Para la noche',
     stayTitle:    '¿Dónde dormir?',
-    stayIntro:    'Los invitados alojados en la finca recibirán un aviso personal. Para los demás, aquí tienes nuestras direcciones cercanas — y las que te desaconsejamos.',
+    stayIntro:    'Te aconsejamos organizarte con bastante antelación para reservar tu alojamiento.',
+    stayNote:     'Algunos hoteles aún no han abierto las reservas para el 5 de junio: no dudes en llamarles directamente para reservar o conocer sus precios.',
+    staySearch:   'O elige entre todos los alojamientos de la zona:',
+    stayAirbnb:   'Ver los Airbnb',
+    stayBooking:  'Ver en Booking',
     stayGood:     'Nuestras recomendaciones',
     stayBad:      'Mejor evitar',
     staySoon:     'La lista llegará muy pronto.'
@@ -877,6 +908,8 @@ function renderHotels() {
       ul.append(li);
     });
   };
+  $('#lnkAirbnb').href  = CONFIG.hotels.airbnb;
+  $('#lnkBooking').href = CONFIG.hotels.booking;
   fill($('#stayGood'), CONFIG.hotels.recommandes);
   fill($('#stayBad'),  CONFIG.hotels.aEviter);
 }
